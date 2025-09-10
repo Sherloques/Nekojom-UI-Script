@@ -1,6 +1,3 @@
--- Roblox Custom Hub UI (เหมือน BONK HUB)
--- วางใน LocalScript (StarterPlayerScripts หรือ StarterGui)
-
 local player = game.Players.LocalPlayer
 local TweenService = game:GetService("TweenService")
 
@@ -158,3 +155,4 @@ end
 makeBottomBtn("SUBMIT", Color3.fromRGB(0, 200, 100), 10)
 makeBottomBtn("GET KEY", Color3.fromRGB(40, 40, 40), 170)
 makeBottomBtn("HOW TO GET KEY", Color3.fromRGB(40, 40, 40), 330)
+
