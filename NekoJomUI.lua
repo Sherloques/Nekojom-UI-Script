@@ -119,7 +119,7 @@ end
 
     Tabs.Player:AddSection("[ Speed / ความเร็ว ]")
 
-    local Input = Tabs.Players:AddInput("Input", {
+    local Input = Tabs.Player:AddInput("Input", {
         Title = "WalkSpeed",
         Default = "20",
         Placeholder = "",
@@ -144,7 +144,7 @@ end
 
     Tabs.Player:AddSection("[ Jump / กระโดด ]")
 
-    local Input = Tabs.Players:AddInput("Input", {
+    local Input = Tabs.Player:AddInput("Input", {
         Title = "JumpPower",
         Default = "50",
         Placeholder = "",
