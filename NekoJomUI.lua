@@ -104,7 +104,7 @@ do
         Callback = function()
             if Scripts == "Fiy" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/Fly"))();
-            elseif Scripts == "AFK" then
+            elseif Scripts == "Anti AFK" then
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/antiafk'))();
             elseif Scripts == "infiniteyield" then
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/infiniteyield'))();
@@ -196,4 +196,5 @@ end
 dragify(logoButton, logoButton)
 
 SaveManager:LoadAutoloadConfig()
+
 
