@@ -15,8 +15,9 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://10709782845" }),
+    Home = Window:AddTab({ Title = "Home", Icon = "rbxassetid://10709782845" }),
     Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
+    Players = Window:AddTab({ Title = "Players", Icon = "rbxassetid://77970870980857" }),
     TP = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://10709775894" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -116,9 +117,9 @@ do
     })
 end
 
-    Tabs.Main:AddSection("[ Speed / ความเร็ว ]")
+    Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
 
-    local Input = Tabs.Main:AddInput("Input", {
+    local Input = Tabs.Players:AddInput("Input", {
         Title = "WalkSpeed",
         Default = "20",
         Placeholder = "",
@@ -133,7 +134,7 @@ end
         --print("Set Speed :", Input.Value)
     end)
     
-    Tabs.Main:AddButton({
+    Tabs.Players:AddButton({
         Title = "Set WalkSpeed",
         Description = "กดเพื่อเปลี่ยนความเร็ว",
         Callback = function()
@@ -141,9 +142,9 @@ end
         end
     })
 
-    Tabs.Main:AddSection("[ Jump / กระโดด ]")
+    Tabs.Players:AddSection("[ Jump / กระโดด ]")
 
-    local Input = Tabs.Main:AddInput("Input", {
+    local Input = Tabs.Players:AddInput("Input", {
         Title = "JumpPower",
         Default = "50",
         Placeholder = "",
