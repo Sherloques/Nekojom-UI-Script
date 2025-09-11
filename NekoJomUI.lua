@@ -89,7 +89,7 @@ do
     })
 end
 
-Tabs.Script:AddSection("[ Other / อื่นๆ ]")
+    Tabs.Script:AddSection("[ Other / อื่นๆ ]")
 
     local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
         Title = "Select Scripts",
@@ -114,7 +114,8 @@ Tabs.Script:AddSection("[ Other / อื่นๆ ]")
                 _G.AntiAFK_HeartbeatMinutes = 5 
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/antiafk'))();
             elseif Scripts == "infiniteyield" then
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/infiniteyield'))()
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/infiniteyield'))();
+                
             end
         end
     })
