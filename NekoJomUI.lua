@@ -167,9 +167,9 @@ end
         end
     })
 
-    Tabs.TP:AddSection("[ Teleport / วาป ]")
+    Tabs.Teleport:AddSection("[ Teleport / วาป ]")
 
-    Tabs.TP:AddButton({
+    Tabs.Teleport:AddButton({
         Title = "Teleport To Shop Seeds",
         Description = "วาปไปที่ขายเมล็ด",
         Callback = function()
