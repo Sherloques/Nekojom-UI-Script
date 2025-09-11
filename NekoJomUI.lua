@@ -1,4 +1,4 @@
---// Roblox UI | รวมเมนู + ปุ่มจัดการหน้าต่าง + ย้ายได้
+--// Roblox UI | มีโลโก้ตอนพับหน้าต่าง
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 local UserInputService = game:GetService("UserInputService")
@@ -19,7 +19,6 @@ mainFrame.Active = true
 mainFrame.Draggable = true
 mainFrame.Parent = screenGui
 
--- Corner
 local uiCorner = Instance.new("UICorner")
 uiCorner.CornerRadius = UDim.new(0, 12)
 uiCorner.Parent = mainFrame
@@ -31,23 +30,19 @@ header.BackgroundColor3 = Color3.fromRGB(15, 15, 25)
 header.BorderSizePixel = 0
 header.Parent = mainFrame
 
-local headerCorner = Instance.new("UICorner")
-headerCorner.CornerRadius = UDim.new(0, 12)
-headerCorner.Parent = header
-
 -- Title
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1, -90, 1, 0)
 title.Position = UDim2.new(0, 10, 0, 0)
 title.BackgroundTransparency = 1
-title.Text = "NekoJom | All Scripts"
+title.Text = "Nekojom | All Scripts"
 title.Font = Enum.Font.GothamBold
 title.TextSize = 16
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
 title.TextXAlignment = Enum.TextXAlignment.Left
 title.Parent = header
 
--- ปุ่มปิด/ย่อ/ขยาย
+-- ปุ่ม header
 local function createHeaderButton(txt, pos)
     local btn = Instance.new("TextButton")
     btn.Size = UDim2.new(0, 30, 0, 30)
@@ -65,16 +60,16 @@ local closeBtn = createHeaderButton("X", UDim2.new(1, -30, 0, 0))
 local minimizeBtn = createHeaderButton("-", UDim2.new(1, -60, 0, 0))
 local maximizeBtn = createHeaderButton("▢", UDim2.new(1, -90, 0, 0))
 
--- โลโก้เวลาพับ
+-- โลโก้ตอนพับ
 local logoBtn = Instance.new("ImageButton")
-logoBtn.Size = UDim2.new(0, 60, 0, 60)
-logoBtn.Position = UDim2.new(0.02, 0, 0.1, 0)
+logoBtn.Size = UDim2.new(0, 80, 0, 80)
+logoBtn.Position = UDim2.new(0.05, 0, 0.1, 0)
 logoBtn.BackgroundTransparency = 1
 logoBtn.Visible = false
-logoBtn.Image = "rbxassetid://YOUR_LOGO_IMAGE_ID" -- << ใส่ asset id ของโลโก้ที่อัปไว้
+logoBtn.Image = "1415692702896488450" -- << ใส่ Asset ID รูป (จ้มกับบื้อ) ที่อัปขึ้น Roblox
 logoBtn.Parent = screenGui
 
--- ฟังก์ชันปุ่ม
+-- ฟังก์ชัน
 local minimized = false
 local maximized = false
 local oldSize = mainFrame.Size
@@ -83,14 +78,13 @@ local oldPos = mainFrame.Position
 closeBtn.MouseButton1Click:Connect(function()
     mainFrame.Visible = false
     logoBtn.Visible = true
+    minimized = true
 end)
 
 minimizeBtn.MouseButton1Click:Connect(function()
-    if not minimized then
-        mainFrame.Visible = false
-        logoBtn.Visible = true
-        minimized = true
-    end
+    mainFrame.Visible = false
+    logoBtn.Visible = true
+    minimized = true
 end)
 
 logoBtn.MouseButton1Click:Connect(function()
@@ -113,7 +107,7 @@ maximizeBtn.MouseButton1Click:Connect(function()
     end
 end)
 
---// Sidebar Menu
+-- Sidebar Menu
 local sidebar = Instance.new("Frame")
 sidebar.Size = UDim2.new(0, 200, 1, -30)
 sidebar.Position = UDim2.new(0, 0, 0, 30)
@@ -126,7 +120,7 @@ sidebarLayout.Padding = UDim.new(0, 5)
 sidebarLayout.SortOrder = Enum.SortOrder.LayoutOrder
 sidebarLayout.Parent = sidebar
 
--- Function สร้างปุ่มเมนู
+-- Function ปุ่มเมนู
 local function createMenuButton(text, icon)
     local btn = Instance.new("TextButton")
     btn.Size = UDim2.new(1, -10, 0, 40)
