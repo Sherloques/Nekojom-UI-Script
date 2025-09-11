@@ -53,13 +53,35 @@ local maximizeBtn = createTopButton("□", -60)
 local closeBtn = createTopButton("X", -30)
 
 -- โลโก้ตอนย่อ
-local minimizedLogo = Instance.new("ImageLabel")
-minimizedLogo.Size = UDim2.new(0, 50, 0, 50)
-minimizedLogo.Position = UDim2.new(0, 20, 0, 40)
-minimizedLogo.BackgroundTransparency = 1
-minimizedLogo.Image = "rbxassetid://118974663345349"
-minimizedLogo.Visible = false
-minimizedLogo.Parent = screenGui
+local CoreGui = game:GetService("CoreGui")
+local logoGui = Instance.new("ScreenGui")
+
+logoGui.Name = "NekojomHub"
+logoGui.ResetOnSpawn = false
+logoGui.Parent = CoreGui.ScreenGui
+
+local screenGui = nil
+while not screenGui do
+    for _, gui in pairs(CoreGui:GetChildren()) do
+        if gui:IsA("ScreenGui") then
+            screenGui = gui
+            break
+        end
+    end
+    task.wait(0.1)
+end
+
+local logoButton = Instance.new("ImageButton")
+logoButton.Name = "LogoButton"
+logoButton.Size = UDim2.new(0, 55, 0, 55)
+logoButton.Position = UDim2.new(0, 65, 0, 50)
+logoButton.BackgroundTransparency = 1
+logoButton.Image = "rbxassetid://118974663345349"
+logoButton.Parent = logoGui
+logoButton.ZIndex = 999
+logoButton.MouseButton1Click:Connect(function()
+ 
+end)
 
 -- ปิด
 closeBtn.MouseButton1Click:Connect(function()
@@ -150,5 +172,6 @@ local scriptBtn = createMenuButton("Script", "📜")
 local playersBtn = createMenuButton("Players", "👤")
 local teleportBtn = createMenuButton("Teleport", "📍")
 local settingsBtn = createMenuButton("Settings", "⚙")
+
 
 
