@@ -32,7 +32,6 @@ local Script = {
     "Lemon Hub",
     "BlueX Hub",
     "Ronix hub",
-
 }
 
 
@@ -78,7 +77,7 @@ do
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if Scripts == "Lemon Hub" then
-                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
+                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))()
             elseif Scripts == "BlueX-Hub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
             elseif Scripts == "Ronix" then
@@ -109,7 +108,7 @@ end
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if Scripts == "Fiy" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/Fly"))();
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/Fly"))()
             elseif Scripts == "AFK" then
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/antiafk'))();
             elseif Scripts == "infiniteyield" then
