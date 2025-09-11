@@ -123,34 +123,6 @@ while not screenGui do
     task.wait(0.1)
 end
 
--- ตัวอย่างการใช้ตัวแปล
-local GameId = game.GameId
-local PlaceId = game.PlaceId
-
-if gameId == 126884695634066 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
-end
-
--- ตัวอย่าง
-if game.GameId == 126884695634066 then -- หลังจาก == ให้ใส่ GameId
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
-end
-
-if game.PlaceId == 123123 then -- หลังจาก == ให้ใส่ PlaceId
-    loadstring(game:HttpGet("rew"))
-end
-
--- ต่อไปวิธีทำให้มันใช้ได้หลายแมพ
-if game.GameId == 123123 then
-    loadstring(game:HttpGet("rew"))
--- ให้ต่อลงมาด้วย elseif
-elseif game.GameId == 456456 then
-    loadstring(game:HttpGet("rew"))
-end
-
-
-
-
 local logoButton = Instance.new("ImageButton")
 logoButton.Name = "LogoButton"
 logoButton.Size = UDim2.new(0, 55, 0, 55)
@@ -205,5 +177,6 @@ end
 dragify(logoButton, logoButton)
 
 SaveManager:LoadAutoloadConfig()
+
 
 
