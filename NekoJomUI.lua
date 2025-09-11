@@ -1,158 +1,131 @@
-local player = game.Players.LocalPlayer
-local TweenService = game:GetService("TweenService")
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local Sidebar = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local HomeBtn = Instance.new("TextButton")
+local ScriptBtn = Instance.new("TextButton")
+local PlayersBtn = Instance.new("TextButton")
+local TeleportBtn = Instance.new("TextButton")
+local SettingsBtn = Instance.new("TextButton")
+local ContentFrame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Box1 = Instance.new("Frame")
+local Box1Title = Instance.new("TextLabel")
+local Box1Desc = Instance.new("TextLabel")
+local Box2 = Instance.new("Frame")
+local Box2Title = Instance.new("TextLabel")
+local Box2Desc = Instance.new("TextLabel")
 
--- ScreenGui
-local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
-gui.Name = "CustomHub"
+-- Properties:
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
--- Main Frame
-local mainFrame = Instance.new("Frame")
-mainFrame.Size = UDim2.new(0, 500, 0, 320)
-mainFrame.Position = UDim2.new(0.5, -250, 0.5, -160)
-mainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-mainFrame.BorderSizePixel = 0
-mainFrame.Parent = gui
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 30)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.2, 0, 0.1, 0)
+MainFrame.Size = UDim2.new(0, 600, 0, 400)
 
-local uiCorner = Instance.new("UICorner", mainFrame)
-uiCorner.CornerRadius = UDim.new(0, 12)
+Sidebar.Name = "Sidebar"
+Sidebar.Parent = MainFrame
+Sidebar.BackgroundColor3 = Color3.fromRGB(25, 25, 40)
+Sidebar.Size = UDim2.new(0, 150, 1, 0)
 
-local uiStroke = Instance.new("UIStroke", mainFrame)
-uiStroke.Color = Color3.fromRGB(40, 120, 40)
-uiStroke.Thickness = 2
+UICorner.CornerRadius = UDim.new(0, 8)
+UICorner.Parent = MainFrame
 
--- Title Bar
-local titleBar = Instance.new("Frame", mainFrame)
-titleBar.Size = UDim2.new(1, 0, 0, 40)
-titleBar.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-titleBar.BorderSizePixel = 0
-
-local titleText = Instance.new("TextLabel", titleBar)
-titleText.Size = UDim2.new(1, -50, 1, 0)
-titleText.Position = UDim2.new(0, 10, 0, 0)
-titleText.BackgroundTransparency = 1
-titleText.Text = "BONK HUB • Key System | Free Version"
-titleText.TextColor3 = Color3.fromRGB(255, 255, 255)
-titleText.Font = Enum.Font.GothamBold
-titleText.TextSize = 18
-titleText.TextXAlignment = Enum.TextXAlignment.Left
-
--- ปุ่มปิด (X)
-local closeBtn = Instance.new("TextButton", titleBar)
-closeBtn.Size = UDim2.new(0, 40, 1, 0)
-closeBtn.Position = UDim2.new(1, -40, 0, 0)
-closeBtn.BackgroundColor3 = Color3.fromRGB(220, 50, 50)
-closeBtn.Text = "X"
-closeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-closeBtn.Font = Enum.Font.GothamBold
-closeBtn.TextSize = 20
-
-closeBtn.MouseButton1Click:Connect(function()
-    mainFrame:Destroy()
-end)
-
--- Section Roblox Game Info
-local infoFrame = Instance.new("Frame", mainFrame)
-infoFrame.Size = UDim2.new(1, -20, 0, 70)
-infoFrame.Position = UDim2.new(0, 10, 0, 50)
-infoFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-infoFrame.BorderSizePixel = 0
-Instance.new("UICorner", infoFrame).CornerRadius = UDim.new(0, 10)
-
-local gameIcon = Instance.new("ImageLabel", infoFrame)
-gameIcon.Size = UDim2.new(0, 60, 0, 60)
-gameIcon.Position = UDim2.new(0, 5, 0, 5)
-gameIcon.Image = "rbxassetid://6031075930"
-gameIcon.BackgroundTransparency = 1
-
-local infoText = Instance.new("TextLabel", infoFrame)
-infoText.Size = UDim2.new(1, -150, 1, 0)
-infoText.Position = UDim2.new(0, 75, 0, 0)
-infoText.BackgroundTransparency = 1
-infoText.Text = "i need to buy key bonk hub!!!!!\nTime (ICT): 08:16:19"
-infoText.TextColor3 = Color3.fromRGB(255, 255, 255)
-infoText.Font = Enum.Font.Gotham
-infoText.TextSize = 16
-infoText.TextXAlignment = Enum.TextXAlignment.Left
-infoText.TextYAlignment = Enum.TextYAlignment.Center
-
-local greenBtn = Instance.new("TextButton", infoFrame)
-greenBtn.Size = UDim2.new(0, 160, 0, 30)
-greenBtn.Position = UDim2.new(1, -170, 0.5, -15)
-greenBtn.BackgroundColor3 = Color3.fromRGB(0, 200, 100)
-greenBtn.Text = "Loaded saved key"
-greenBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-greenBtn.Font = Enum.Font.GothamBold
-greenBtn.TextSize = 14
-Instance.new("UICorner", greenBtn).CornerRadius = UDim.new(0, 8)
-
--- Section User
-local userFrame = Instance.new("Frame", mainFrame)
-userFrame.Size = UDim2.new(1, -20, 0, 60)
-userFrame.Position = UDim2.new(0, 10, 0, 130)
-userFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-userFrame.BorderSizePixel = 0
-Instance.new("UICorner", userFrame).CornerRadius = UDim.new(0, 10)
-
-local userIcon = Instance.new("ImageLabel", userFrame)
-userIcon.Size = UDim2.new(0, 50, 0, 50)
-userIcon.Position = UDim2.new(0, 5, 0, 5)
-userIcon.Image = "rbxassetid://6031068429"
-userIcon.BackgroundTransparency = 1
-
-local userText = Instance.new("TextLabel", userFrame)
-userText.Size = UDim2.new(0.6, 0, 1, 0)
-userText.Position = UDim2.new(0, 65, 0, 0)
-userText.BackgroundTransparency = 1
-userText.Text = "@Hy••••99\nID: ************"
-userText.TextColor3 = Color3.fromRGB(255, 255, 255)
-userText.Font = Enum.Font.Gotham
-userText.TextSize = 14
-userText.TextXAlignment = Enum.TextXAlignment.Left
-
--- ปุ่มลิงก์
-local function makeButton(name, color, pos)
-    local btn = Instance.new("TextButton", userFrame)
-    btn.Size = UDim2.new(0, 90, 0, 30)
-    btn.Position = UDim2.new(0, pos, 0.5, -15)
-    btn.BackgroundColor3 = color
-    btn.Text = name
-    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    btn.Font = Enum.Font.GothamBold
-    btn.TextSize = 14
-    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
-    return btn
+-- Buttons
+local function createButton(name, text, posY)
+	local btn = Instance.new("TextButton")
+	btn.Name = name
+	btn.Parent = Sidebar
+	btn.BackgroundTransparency = 1
+	btn.Position = UDim2.new(0, 0, 0, posY)
+	btn.Size = UDim2.new(1, 0, 0, 40)
+	btn.Font = Enum.Font.Gotham
+	btn.Text = text
+	btn.TextColor3 = Color3.fromRGB(220, 220, 220)
+	btn.TextSize = 16
+	return btn
 end
 
-makeButton("Discord", Color3.fromRGB(100, 120, 255), 260)
-makeButton("YouTube", Color3.fromRGB(220, 50, 50), 355)
-makeButton("Website", Color3.fromRGB(0, 150, 255), 450)
+HomeBtn = createButton("HomeBtn", "🏠 Home", 20)
+ScriptBtn = createButton("ScriptBtn", "📜 Script", 70)
+PlayersBtn = createButton("PlayersBtn", "👥 Players", 120)
+TeleportBtn = createButton("TeleportBtn", "📍 Teleport", 170)
+SettingsBtn = createButton("SettingsBtn", "⚙ Settings", 220)
 
--- Section Key Input
-local keyBox = Instance.new("TextBox", mainFrame)
-keyBox.Size = UDim2.new(1, -20, 0, 40)
-keyBox.Position = UDim2.new(0, 10, 0, 200)
-keyBox.PlaceholderText = "................................."
-keyBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-keyBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-keyBox.Font = Enum.Font.Gotham
-keyBox.TextSize = 16
-Instance.new("UICorner", keyBox).CornerRadius = UDim.new(0, 8)
+-- Content
+ContentFrame.Name = "ContentFrame"
+ContentFrame.Parent = MainFrame
+ContentFrame.BackgroundTransparency = 1
+ContentFrame.Position = UDim2.new(0, 160, 0, 10)
+ContentFrame.Size = UDim2.new(1, -170, 1, -20)
 
--- ปุ่มด้านล่าง
-local function makeBottomBtn(name, color, pos)
-    local btn = Instance.new("TextButton", mainFrame)
-    btn.Size = UDim2.new(0, 150, 0, 40)
-    btn.Position = UDim2.new(0, pos, 0, 260)
-    btn.BackgroundColor3 = color
-    btn.Text = name
-    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    btn.Font = Enum.Font.GothamBold
-    btn.TextSize = 16
-    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 8)
-    return btn
-end
+Title.Name = "Title"
+Title.Parent = ContentFrame
+Title.BackgroundTransparency = 1
+Title.Position = UDim2.new(0, 0, 0, 0)
+Title.Size = UDim2.new(1, 0, 0, 40)
+Title.Font = Enum.Font.GothamBold
+Title.Text = "Home"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 24
+Title.TextXAlignment = Enum.TextXAlignment.Left
 
-makeBottomBtn("SUBMIT", Color3.fromRGB(0, 200, 100), 10)
-makeBottomBtn("GET KEY", Color3.fromRGB(40, 40, 40), 170)
-makeBottomBtn("HOW TO GET KEY", Color3.fromRGB(40, 40, 40), 330)
+-- Box 1
+Box1.Name = "Box1"
+Box1.Parent = ContentFrame
+Box1.BackgroundColor3 = Color3.fromRGB(30, 30, 45)
+Box1.Position = UDim2.new(0, 0, 0, 50)
+Box1.Size = UDim2.new(1, -20, 0, 70)
+Box1Title.Name = "Box1Title"
+Box1Title.Parent = Box1
+Box1Title.BackgroundTransparency = 1
+Box1Title.Position = UDim2.new(0, 10, 0, 5)
+Box1Title.Size = UDim2.new(1, -20, 0, 20)
+Box1Title.Font = Enum.Font.GothamBold
+Box1Title.Text = "Welcome To My Script"
+Box1Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Box1Title.TextSize = 16
+Box1Title.TextXAlignment = Enum.TextXAlignment.Left
 
+Box1Desc.Name = "Box1Desc"
+Box1Desc.Parent = Box1
+Box1Desc.BackgroundTransparency = 1
+Box1Desc.Position = UDim2.new(0, 10, 0, 30)
+Box1Desc.Size = UDim2.new(1, -20, 0, 30)
+Box1Desc.Font = Enum.Font.Gotham
+Box1Desc.Text = "หากสคริปต์ไหนใช้ไม่ได้โปรดติดต่อที่ดิสคอร์ดด้านล่าง"
+Box1Desc.TextColor3 = Color3.fromRGB(200, 200, 200)
+Box1Desc.TextSize = 14
+Box1Desc.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Box 2
+Box2.Name = "Box2"
+Box2.Parent = ContentFrame
+Box2.BackgroundColor3 = Color3.fromRGB(30, 30, 45)
+Box2.Position = UDim2.new(0, 0, 0, 130)
+Box2.Size = UDim2.new(1, -20, 0, 50)
+Box2Title.Name = "Box2Title"
+Box2Title.Parent = Box2
+Box2Title.BackgroundTransparency = 1
+Box2Title.Position = UDim2.new(0, 10, 0, 5)
+Box2Title.Size = UDim2.new(1, -20, 0, 20)
+Box2Title.Font = Enum.Font.GothamBold
+Box2Title.Text = "Discord Invite"
+Box2Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Box2Title.TextSize = 16
+Box2Title.TextXAlignment = Enum.TextXAlignment.Left
+
+Box2Desc.Name = "Box2Desc"
+Box2Desc.Parent = Box2
+Box2Desc.BackgroundTransparency = 1
+Box2Desc.Position = UDim2.new(0, 10, 0, 25)
+Box2Desc.Size = UDim2.new(1, -20, 0, 20)
+Box2Desc.Font = Enum.Font.Gotham
+Box2Desc.Text = "กดเพื่อคัดลอกลิงก์ดิสคอร์ด"
+Box2Desc.TextColor3 = Color3.fromRGB(200, 200, 200)
+Box2Desc.TextSize = 14
+Box2Desc.TextXAlignment = Enum.TextXAlignment.Left
