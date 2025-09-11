@@ -5,8 +5,8 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Library/refs/heads/main/Fluent/InterfaceManager"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Nekojom | All Scripts",
-    SubTitle = "by jom",
+    Title = "Rocket | All Scripts | Grow a Garden |",
+    SubTitle = "by Khaotom",
     TabWidth = 160,
     Size = UDim2.fromOffset(550, 350),
     Acrylic = false,
@@ -49,7 +49,7 @@ do
             setclipboard("https://discord.gg/yt-rocket")
             StarterGui:SetCore("SendNotification", {
                 Title = "System",
-                Icon = "rbxassetid://86373171106525",
+                Icon = "rbxassetid://118974663345349",
                 Text = "ได้คัดลอกลิ้งค์ไปยังคีบอร์ดของคุณแล้ว",
                 Duration = 4,
             })
@@ -82,38 +82,6 @@ do
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
             elseif Scripts == "Ronix" then
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
-
-            end
-        end
-    })
-end
-
-    Tabs.Script:AddSection("[ Other / อื่นๆ ]")
-
-    local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = Script,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
-
-    --Dropdown:SetValue("four")
-
-    Dropdown:OnChanged(function(Value)
-        Scripts = Value
-    end)
---------------------------------------------
-    Tabs.Script:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if Scripts == "Fiy" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/Fly"))()
-            elseif Scripts == "AFK" then
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/antiafk'))();
-            elseif Scripts == "infiniteyield" then
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/infiniteyield'))();
-
             end
         end
     })
@@ -133,7 +101,7 @@ Window:SelectTab(1)
 local CoreGui = game:GetService("CoreGui")
 local logoGui = Instance.new("ScreenGui")
 
-logoGui.Name = "JomHub"
+logoGui.Name = "GhostHub"
 logoGui.ResetOnSpawn = false
 logoGui.Parent = CoreGui.ScreenGui
 
@@ -153,7 +121,7 @@ logoButton.Name = "LogoButton"
 logoButton.Size = UDim2.new(0, 55, 0, 55)
 logoButton.Position = UDim2.new(0, 65, 0, 50)
 logoButton.BackgroundTransparency = 1
-logoButton.Image = "rbxassetid://86373171106525"
+logoButton.Image = "rbxassetid://118974663345349"
 logoButton.Parent = logoGui
 logoButton.ZIndex = 999
 logoButton.MouseButton1Click:Connect(function()
