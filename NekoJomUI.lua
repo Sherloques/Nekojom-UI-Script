@@ -89,7 +89,7 @@ do
 
     local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
         Title = "Select Scripts",
-        Values = Script,
+        Values = Other,
         Multi = false,
         Default = "เลือกสคริปต์",
     })
@@ -196,5 +196,6 @@ end
 dragify(logoButton, logoButton)
 
 SaveManager:LoadAutoloadConfig()
+
 
 
