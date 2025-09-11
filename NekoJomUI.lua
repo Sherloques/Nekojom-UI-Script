@@ -21,12 +21,7 @@ local Tabs = {
 }
 
 local Options = Fluent.Options
-
-local Plr = cloneref(game:GetService("Players"))
-local PlaceId, JobId = game.PlaceId, game.JobId
-local LocalPlr = Plr.LocalPlayer
-local StarterGui = cloneref(game:GetService("StarterGui"))
-local TeleportService = cloneref(game:GetService("TeleportService"))
+local StarterGui = game:GetService("StarterGui")
 
 local Script = {
     "Lemon Hub",
@@ -49,7 +44,7 @@ do
             setclipboard("https://discord.gg/yt-rocket")
             StarterGui:SetCore("SendNotification", {
                 Title = "System",
-                Icon = "rbxassetid://118974663345349",
+                Icon = "rbxassetid://86373171106525",
                 Text = "ได้คัดลอกลิ้งค์ไปยังคีบอร์ดของคุณแล้ว",
                 Duration = 4,
             })
@@ -66,22 +61,48 @@ do
         Default = "เลือกสคริปต์",
     })
 
-    --Dropdown:SetValue("four")
-
     Dropdown:OnChanged(function(Value)
         Scripts = Value
     end)
---------------------------------------------
+
     Tabs.Script:AddButton({
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if Scripts == "Lemon Hub" then
-                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))()
-            elseif Scripts == "BlueX-Hub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
-            elseif Scripts == "Ronix" then
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
+            elseif Scripts == "BlueX Hub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
+            elseif Scripts == "Ronix hub" then
+                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
+            end
+        end
+    })
+
+
+    Tabs.Script:AddSection("[ Other / อื่นๆ ]")
+
+    local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
+        Title = "Select Scripts",
+        Values = Script,
+        Multi = false,
+        Default = "เลือกสคริปต์",
+    })
+
+    Dropdown:OnChanged(function(Value)
+        Scripts = Value
+    end)
+
+    Tabs.Script:AddButton({
+        Title = "Click To Execute",
+        Description = "กดเพื่อรันสคริปต์",
+        Callback = function()
+            if Scripts == "Fiy" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/Fly"))();
+            elseif Scripts == "AFK" then
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/antiafk'))();
+            elseif Scripts == "infiniteyield" then
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/infiniteyield'))();
             end
         end
     })
@@ -101,7 +122,7 @@ Window:SelectTab(1)
 local CoreGui = game:GetService("CoreGui")
 local logoGui = Instance.new("ScreenGui")
 
-logoGui.Name = "GhostHub"
+logoGui.Name = "JomHub"
 logoGui.ResetOnSpawn = false
 logoGui.Parent = CoreGui.ScreenGui
 
