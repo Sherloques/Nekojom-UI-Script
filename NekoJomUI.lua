@@ -1,52 +1,108 @@
+if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
+
 local Fluent = loadstring(game:HttpGet("http://raw.githubusercontent.com/GhostSobe/Library/refs/heads/main/Fluent/Fluent"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Library/refs/heads/main/Fluent/InterfaceManager"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Nekojom",
-    SubTitle = "by Jom",
+    Title = "Nekojom | All Scripts",
+    SubTitle = "by jom",
     TabWidth = 160,
-    Size = UDim2.fromOffset(580, 360),
+    Size = UDim2.fromOffset(550, 350),
     Acrylic = false,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 
--- https://lucide.dev/icons/ เว็บเอา icon
 local Tabs = {
-    gag = Window:AddTab({ Title = "GAG", Icon = "rbxassetid://10709782845" }),
-    night = Window:AddTab({ Title = "99Night", Icon = "rbxassetid://10709775894" }),
-    Fish = Window:AddTab({ Title = "Fish It", Icon = "rbxassetid://10709775894" }),
-    sab = Window:AddTab({ Title = "Brainrot", Icon = "rbxassetid://10709775894" }),
+    Home = Window:AddTab({ Title = "Home", Icon = "home" }),
+    Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
-local Plr = game:GetService("Players")
-local LocalPlr = Plr.LocalPlayer
 local Options = Fluent.Options
+
+local Plr = cloneref(game:GetService("Players"))
+local PlaceId, JobId = game.PlaceId, game.JobId
+local LocalPlr = Plr.LocalPlayer
+local StarterGui = cloneref(game:GetService("StarterGui"))
+local TeleportService = cloneref(game:GetService("TeleportService"))
+
+local Script = {
+    "Lemon Hub",
+    "BlueX Hub",
+    "Ronix hub",
+
+}
 
 
 do
+    pcall(function()
+    Tabs.Home:AddParagraph({
+        Title = "Welcome To My Script",
+        Content = "หากสคริปต์ไหนใช้ไม่ได้โปรดติดต่อที่ดิสคอร์ดด้านล่าง\nหรืออยากให้เพิ่มสคริปต์ไหนก็สามารถแจ้งได้ที่ Discord ด้านล่าง"
+    })
 
+    Tabs.Home:AddButton({
+        Title = "Discord Invite",
+        Description = "กดเพื่อคัดลอกลิ้งค์ดิสคอร์ด",
+        Callback = function()
+            setclipboard("https://discord.gg/yt-rocket")
+            StarterGui:SetCore("SendNotification", {
+                Title = "System",
+                Icon = "rbxassetid://86373171106525",
+                Text = "ได้คัดลอกลิ้งค์ไปยังคีบอร์ดของคุณแล้ว",
+                Duration = 4,
+            })
+        end
+    })
+    end)
+
+    Tabs.Script:AddSection("[ key / มีคีย์ ]")
+
+    local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
+        Title = "Select Scripts",
+        Values = Script,
+        Multi = false,
+        Default = "เลือกสคริปต์",
+    })
+
+    --Dropdown:SetValue("four")
+
+    Dropdown:OnChanged(function(Value)
+        Scripts = Value
+    end)
+--------------------------------------------
+    Tabs.Script:AddButton({
+        Title = "Click To Execute",
+        Description = "กดเพื่อรันสคริปต์",
+        Callback = function()
+            if Scripts == "Lemon Hub" then
+                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
+            elseif Scripts == "BlueX-Hub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
+            elseif Scripts == "Ronix" then
+
+            end
+        end
+    })
 end
-
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
 SaveManager:IgnoreThemeSettings()
 SaveManager:SetIgnoreIndexes({})
-InterfaceManager:SetFolder("FluentScriptHub")
-SaveManager:SetFolder("FluentScriptHub/specific-game")
+InterfaceManager:SetFolder("Ghost Hub")
+SaveManager:SetFolder("Ghost Hub/specific-game")
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
-SaveManager:BuildConfigSection(Tabs.Settings)
-
-
+-- SaveManager:BuildConfigSection(Tabs.Settings)
 Window:SelectTab(1)
+
 
 local CoreGui = game:GetService("CoreGui")
 local logoGui = Instance.new("ScreenGui")
 
-logoGui.Name = "NekoJomHub"
+logoGui.Name = "JomHub"
 logoGui.ResetOnSpawn = false
 logoGui.Parent = CoreGui.ScreenGui
 
