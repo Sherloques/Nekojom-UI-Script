@@ -17,7 +17,7 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Home = Window:AddTab({ Title = "Home", Icon = "rbxassetid://10709782845" }),
     Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
-    Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://77970870980857" }),
+    Players = Window:AddTab({ Title = "Players", Icon = "rbxassetid://77970870980857" }),
     TP = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://10709775894" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
