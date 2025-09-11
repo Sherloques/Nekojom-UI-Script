@@ -111,11 +111,10 @@ end
             if Scripts == "Fiy" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/Fly"))();
             elseif Scripts == "AFK" then
-                _G.AntiAFK_HeartbeatMinutes = 5 
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/antiafk'))();
             elseif Scripts == "infiniteyield" then
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/infiniteyield'))();
-                
+
             end
         end
     })
