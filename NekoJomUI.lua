@@ -29,9 +29,17 @@ local StarterGui = cloneref(game:GetService("StarterGui"))
 local TeleportService = cloneref(game:GetService("TeleportService"))
 
 local Script = {
-    "Lemon Hub",
-    "BlueX Hub",
-    "Ronix hub",
+    "AvOnTop",
+    "Attack Hub",
+    "Than hub",
+    "Fetching's Hub",
+    "Jimi Hub",
+    "Black Hub",
+    "Doggo's Hub",
+    "Mauscripts",
+    "Xerox Hub",
+    "Gumanba",
+    "Somtank",
 }
 
 
@@ -57,7 +65,7 @@ do
     })
     end)
 
-    Tabs.Script:AddSection("[ key / มีคีย์ ]")
+    Tabs.Script:AddSection("[ Nokey / ไม่มีคีย์ ]")
 
     local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
         Title = "Select Scripts",
@@ -76,12 +84,34 @@ do
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
-            if Scripts == "Lemon Hub" then
-                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))()
-            elseif Scripts == "BlueX-Hub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
-            elseif Scripts == "Ronix" then
-                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
+            if Scripts == "AvOnTop" then
+                loadstring(game:HttpGet("https://get-avth-ontop.netlify.app/my-paste/script.lua"))()
+            elseif Scripts == "Jimi Hub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/bunnnwee/JimiHub/refs/heads/main/GrowAGarden-Normal"))();
+            elseif Scripts == "Black Hub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/FischMain"))();
+            elseif Scripts == "Doggo's Hub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/doggoman230/growagarden/refs/heads/main/script"))();
+            elseif Scripts == "Mauscripts" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/nootmaus/GrowAAGarden/refs/heads/main/mauscripts"))();
+            elseif Scripts == "Xerox Hub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Nebula-xyzs/GAG/refs/heads/main/GrowAGardenXE"))();
+            elseif Scripts == "Gumanba" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/GrowaGarden", true))();
+            elseif Scripts == "Somtank" then
+                loadstring(game:HttpGet('https://pastebin.com/raw/BjkuU1TV'))();
+            -- elseif Scripts == "Thunder Z" then
+            --     loadstring(game:HttpGet('https://raw.githubusercontent.com/ThundarZ/Welcome/refs/heads/main/Main/GaG/Main.lua'))();
+            -- elseif Scripts == "Bonk Hub" then
+            --     loadstring(game:HttpGet("https://bonkhubloader.netlify.app",true))()
+            -- elseif Scripts == "Speed Hub" then
+            --    loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
+            elseif Scripts == "Fetching's Hub" then
+                loadstring(game:HttpGet('https://github.com/96soul/-/blob/main/load.gg?raw=true', true))();
+            elseif Scripts == "Attack Hub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Marukulaes/Attack-Hub/refs/heads/main/Grow%20A%20Graden"))();
+            elseif Scripts == "Than hub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))();
             end
         end
     })
