@@ -166,13 +166,6 @@ end
         end
     })
 
-    --[[ วิธีหาตำแหน่ง CFrame
-    1.ให้ไปยืนจุดที่ต้องการจะให้วาปไป
-    2.คัดลอกสคริปนี้ไปรัน
-    setclipboard(tostring(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
-    จากนั้นมันจะคัดลอกคำแหน่งให้แล้วเอามาวางใน CFrame.new(ตำแหน่งที่ได้มา)
-    ]]
-
     Tabs.TP:AddSection("[ Teleport / วาป ]")
 
     Tabs.TP:AddButton({
