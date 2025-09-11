@@ -17,7 +17,7 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Home = Window:AddTab({ Title = "Home", Icon = "rbxassetid://10709782845" }),
     Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
-    Player = Window:AddTab({ Title = "Players", Icon = "rbxassetid://77970870980857" }),
+    Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://77970870980857" }),
     TP = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://10709775894" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -176,6 +176,7 @@ end
             LocalPlr.Character.HumanoidRootPart.CFrame = CFrame.new(86.5790176, 2.99999976, -27.0039711, 0.00114052149, -4.75095341e-08, -0.999999344, -1.16310509e-12, 1, -4.75095661e-08, 0.999999344, 5.53487881e-11, 0.00114052149)
         end
     })
+end
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
