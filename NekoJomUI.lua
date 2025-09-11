@@ -95,18 +95,18 @@ do
     })
 
     Dropdown:OnChanged(function(Value)
-        Scripts = Value
+        Others = Value
     end)
 
     Tabs.Script:AddButton({
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
-            if Scripts == "Fiy" then
+            if Others == "Fiy" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/Fly"))();
-            elseif Scripts == "Anti AFK" then
+            elseif Others == "Anti AFK" then
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/antiafk'))();
-            elseif Scripts == "infiniteyield" then
+            elseif Others == "infiniteyield" then
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/infiniteyield'))();
             end
         end
@@ -196,6 +196,3 @@ end
 dragify(logoButton, logoButton)
 
 SaveManager:LoadAutoloadConfig()
-
-
-
