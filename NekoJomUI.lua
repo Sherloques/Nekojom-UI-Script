@@ -110,7 +110,7 @@ do
 local CoreGui = game:GetService("CoreGui")
 local logoGui = Instance.new("ScreenGui")
 
-logoGui.Name = "NekojomHub"
+logoGui.Name = "NekoJomHub"
 logoGui.ResetOnSpawn = false
 logoGui.Parent = CoreGui.ScreenGui
 
@@ -134,7 +134,7 @@ logoButton.Image = "rbxassetid://118974663345349"
 logoButton.Parent = logoGui
 logoButton.ZIndex = 999
 logoButton.MouseButton1Click:Connect(function()
- 
+    CoreGui.ScreenGui:GetChildren()[2].Visible = not CoreGui.ScreenGui:GetChildren()[2].Visible
 end)
 
     
@@ -287,4 +287,5 @@ Fluent:Notify({
 -- You can use the SaveManager:LoadAutoloadConfig() to load a config
 -- which has been marked to be one that auto loads!
 SaveManager:LoadAutoloadConfig()
+
 
