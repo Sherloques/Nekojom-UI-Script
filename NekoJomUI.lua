@@ -22,8 +22,6 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
-local Plr = game:GetService("Players")
-local LocalPlr = Plr.LocalPlayer
 local Options = Fluent.Options
 local StarterGui = game:GetService("StarterGui")
 
@@ -41,12 +39,12 @@ local Other = {
 
 do
     pcall(function()
-    Tabs.Main:AddParagraph({
+    Tabs.Home:AddParagraph({
         Title = "Welcome To My Script",
         Content = "หากสคริปต์ไหนใช้ไม่ได้โปรดติดต่อที่ดิสคอร์ดด้านล่าง\nหรืออยากให้เพิ่มสคริปต์ไหนก็สามารถแจ้งได้ที่ Discord ด้านล่าง"
     })
 
-    Tabs.Main:AddButton({
+    Tabs.Home:AddButton({
         Title = "Discord Invite",
         Description = "กดเพื่อคัดลอกลิ้งค์ดิสคอร์ด",
         Callback = function()
@@ -113,67 +111,6 @@ do
             elseif Others == "infiniteyield" then
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/infiniteyield'))();
             end
-        end
-    })
-end
-
-    Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
-
-    local Input = Tabs.Players:AddInput("Input", {
-        Title = "WalkSpeed",
-        Default = "20",
-        Placeholder = "",
-        Numeric = false,
-        Finished = false,
-        Callback = function(Value)
-            Speed = Value
-        end
-    })
-
-    Input:OnChanged(function()
-        --print("Set Speed :", Input.Value)
-    end)
-    
-    Tabs.Players:AddButton({
-        Title = "Set WalkSpeed",
-        Description = "กดเพื่อเปลี่ยนความเร็ว",
-        Callback = function()
-            LocalPlr.Character.Humanoid.WalkSpeed = Speed
-        end
-    })
-
-    Tabs.Players:AddSection("[ Jump / กระโดด ]")
-
-    local Input = Tabs.Players:AddInput("Input", {
-        Title = "JumpPower",
-        Default = "50",
-        Placeholder = "",
-        Numeric = false,
-        Finished = false,
-        Callback = function(Value)
-            Jump = Value
-        end
-    })
-
-    Input:OnChanged(function()
-        --print("Set Speed :", Input.Value)
-    end)
-
-    Tabs.Main:AddButton({
-        Title = "Set JumpPower",
-        Description = "กดเพื่อเปลี่ยนพลังกระโดด",
-        Callback = function()
-            LocalPlr.Character.Humanoid.JumpPower = Jump
-        end
-    })
-
-    Tabs.TP:AddSection("[ Teleport / วาป ]")
-
-    Tabs.TP:AddButton({
-        Title = "Teleport To Shop Seeds",
-        Description = "วาปไปที่ขายเมล็ด",
-        Callback = function()
-            LocalPlr.Character.HumanoidRootPart.CFrame = CFrame.new(86.5790176, 2.99999976, -27.0039711, 0.00114052149, -4.75095341e-08, -0.999999344, -1.16310509e-12, 1, -4.75095661e-08, 0.999999344, 5.53487881e-11, 0.00114052149)
         end
     })
 end
