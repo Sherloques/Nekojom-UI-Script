@@ -5,8 +5,8 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Library/refs/heads/main/Fluent/InterfaceManager"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Rocket | All Scripts | Grow a Garden |",
-    SubTitle = "by Khaotom",
+    Title = "Nekojom | All Scripts",
+    SubTitle = "by jom",
     TabWidth = 160,
     Size = UDim2.fromOffset(550, 350),
     Acrylic = false,
@@ -29,17 +29,9 @@ local StarterGui = cloneref(game:GetService("StarterGui"))
 local TeleportService = cloneref(game:GetService("TeleportService"))
 
 local Script = {
-    "AvOnTop",
-    "Attack Hub",
-    "Than hub",
-    "Fetching's Hub",
-    "Jimi Hub",
-    "Black Hub",
-    "Doggo's Hub",
-    "Mauscripts",
-    "Xerox Hub",
-    "Gumanba",
-    "Somtank",
+    "Lemon Hub",
+    "BlueX Hub",
+    "Ronix hub",
 }
 
 
@@ -65,7 +57,7 @@ do
     })
     end)
 
-    Tabs.Script:AddSection("[ Nokey / ไม่มีคีย์ ]")
+    Tabs.Script:AddSection("[ key / มีคีย์ ]")
 
     local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
         Title = "Select Scripts",
@@ -84,34 +76,12 @@ do
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
-            if Scripts == "AvOnTop" then
-                loadstring(game:HttpGet("https://get-avth-ontop.netlify.app/my-paste/script.lua"))()
-            elseif Scripts == "Jimi Hub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/bunnnwee/JimiHub/refs/heads/main/GrowAGarden-Normal"))();
-            elseif Scripts == "Black Hub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/FischMain"))();
-            elseif Scripts == "Doggo's Hub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/doggoman230/growagarden/refs/heads/main/script"))();
-            elseif Scripts == "Mauscripts" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/nootmaus/GrowAAGarden/refs/heads/main/mauscripts"))();
-            elseif Scripts == "Xerox Hub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/Nebula-xyzs/GAG/refs/heads/main/GrowAGardenXE"))();
-            elseif Scripts == "Gumanba" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/GrowaGarden", true))();
-            elseif Scripts == "Somtank" then
-                loadstring(game:HttpGet('https://pastebin.com/raw/BjkuU1TV'))();
-            -- elseif Scripts == "Thunder Z" then
-            --     loadstring(game:HttpGet('https://raw.githubusercontent.com/ThundarZ/Welcome/refs/heads/main/Main/GaG/Main.lua'))();
-            -- elseif Scripts == "Bonk Hub" then
-            --     loadstring(game:HttpGet("https://bonkhubloader.netlify.app",true))()
-            -- elseif Scripts == "Speed Hub" then
-            --    loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
-            elseif Scripts == "Fetching's Hub" then
-                loadstring(game:HttpGet('https://github.com/96soul/-/blob/main/load.gg?raw=true', true))();
-            elseif Scripts == "Attack Hub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/Marukulaes/Attack-Hub/refs/heads/main/Grow%20A%20Graden"))();
-            elseif Scripts == "Than hub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))();
+            if Scripts == "Lemon Hub" then
+                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))()
+            elseif Scripts == "BlueX-Hub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
+            elseif Scripts == "Ronix" then
+                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
             end
         end
     })
@@ -151,7 +121,7 @@ logoButton.Name = "LogoButton"
 logoButton.Size = UDim2.new(0, 55, 0, 55)
 logoButton.Position = UDim2.new(0, 65, 0, 50)
 logoButton.BackgroundTransparency = 1
-logoButton.Image = "rbxassetid://118974663345349"
+logoButton.Image = "rbxassetid://86373171106525"
 logoButton.Parent = logoGui
 logoButton.ZIndex = 999
 logoButton.MouseButton1Click:Connect(function()
