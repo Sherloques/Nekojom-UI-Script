@@ -4,7 +4,7 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 
 local Window = Fluent:CreateWindow({
     Title = "Nekojom",
-    SubTitle = "By Jom",
+    SubTitle = "by Jom",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 360),
     Acrylic = false,
@@ -12,9 +12,10 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 
+-- https://lucide.dev/icons/ เว็บเอา icon
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "" }),
-    TP = Window:AddTab({ Title = "Teleport", Icon = "" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://10709782845" }),
+    TP = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://10709775894" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
@@ -73,6 +74,13 @@ do
         end
     })
 
+    --[[ วิธีหาตำแหน่ง CFrame
+    1.ให้ไปยืนจุดที่ต้องการจะให้วาปไป
+    2.คัดลอกสคริปนี้ไปรัน
+    setclipboard(tostring(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
+    จากนั้นมันจะคัดลอกคำแหน่งให้แล้วเอามาวางใน CFrame.new(ตำแหน่งที่ได้มา)
+    ]]
+
     Tabs.TP:AddSection("[ Teleport / วาป ]")
 
     Tabs.TP:AddButton({
@@ -120,7 +128,7 @@ logoButton.Name = "LogoButton"
 logoButton.Size = UDim2.new(0, 55, 0, 55)
 logoButton.Position = UDim2.new(0, 65, 0, 50)
 logoButton.BackgroundTransparency = 1
-logoButton.Image = "rbxassetid://86373171106525"
+logoButton.Image = "rbxassetid://102139866089228"
 logoButton.Parent = logoGui
 logoButton.ZIndex = 999
 logoButton.MouseButton1Click:Connect(function()
