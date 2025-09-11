@@ -12,10 +12,9 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 
--- https://lucide.dev/icons/ เว็บเอา icon
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://10709782845" }),
-    TP = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://10709775894" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "" }),
+    TP = Window:AddTab({ Title = "Teleport", Icon = "" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
@@ -73,13 +72,6 @@ do
             LocalPlr.Character.Humanoid.JumpPower = Jump
         end
     })
-
-    --[[ วิธีหาตำแหน่ง CFrame
-    1.ให้ไปยืนจุดที่ต้องการจะให้วาปไป
-    2.คัดลอกสคริปนี้ไปรัน
-    setclipboard(tostring(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
-    จากนั้นมันจะคัดลอกคำแหน่งให้แล้วเอามาวางใน CFrame.new(ตำแหน่งที่ได้มา)
-    ]]
 
     Tabs.TP:AddSection("[ Teleport / วาป ]")
 
