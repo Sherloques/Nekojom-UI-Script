@@ -276,7 +276,7 @@ logoButton.Name = "LogoButton"
 logoButton.Size = UDim2.new(0, 55, 0, 55)
 logoButton.Position = UDim2.new(0, 65, 0, 50)
 logoButton.BackgroundTransparency = 1
-logoButton.Image = "rbxassetid://118974663345349"
+logoButton.Image = "rbxassetid://102139866089228"
 logoButton.Parent = logoGui
 logoButton.ZIndex = 999
 logoButton.MouseButton1Click:Connect(function()
@@ -286,6 +286,7 @@ end)
 -- You can use the SaveManager:LoadAutoloadConfig() to load a config
 -- which has been marked to be one that auto loads!
 SaveManager:LoadAutoloadConfig()
+
 
 
 
