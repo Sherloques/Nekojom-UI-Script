@@ -115,6 +115,56 @@ do
     })
 end
 
+    Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
+
+    local Input = Tabs.Players:AddInput("Input", {
+        Title = "WalkSpeed",
+        Default = "20",
+        Placeholder = "",
+        Numeric = false,
+        Finished = false,
+        Callback = function(Value)
+            Speed = Value
+        end
+    })
+
+    Input:OnChanged(function()
+        --print("Set Speed :", Input.Value)
+    end)
+    
+    Tabs.Players:AddButton({
+        Title = "Set WalkSpeed",
+        Description = "กดเพื่อเปลี่ยนความเร็ว",
+        Callback = function()
+            LocalPlr.Character.Humanoid.WalkSpeed = Speed
+        end
+    })
+
+    Tabs.Players:AddSection("[ Jump / กระโดด ]")
+
+    local Input = Tabs.Players:AddInput("Input", {
+        Title = "JumpPower",
+        Default = "50",
+        Placeholder = "",
+        Numeric = false,
+        Finished = false,
+        Callback = function(Value)
+            Jump = Value
+        end
+    })
+
+    Input:OnChanged(function()
+        --print("Set Speed :", Input.Value)
+    end)
+
+    Tabs.Players:AddButton({
+        Title = "Set JumpPower",
+        Description = "กดเพื่อเปลี่ยนพลังกระโดด",
+        Callback = function()
+            LocalPlr.Character.Humanoid.JumpPower = Jump
+        end
+    })
+
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
 SaveManager:IgnoreThemeSettings()
