@@ -15,11 +15,13 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-    Home = Window:AddTab({ Title = "Home", Icon = "home" }),
+    Home = Window:AddTab({ Title = "Main", Icon = "rbxassetid://10709782845" }),
     Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
+    TP = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://10709775894" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
-
+local Plr = game:GetService("Players")
+local LocalPlr = Plr.LocalPlayer
 local Options = Fluent.Options
 local StarterGui = game:GetService("StarterGui")
 
@@ -105,6 +107,7 @@ do
             if Others == "Fiy" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/Fly"))();
             elseif Others == "Anti AFK" then
+                _G.AntiAFK_HeartbeatMinutes = 5 
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/antiafk'))();
             elseif Others == "infiniteyield" then
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/infiniteyield'))();
