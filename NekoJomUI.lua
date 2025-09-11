@@ -57,7 +57,7 @@ local minimizedLogo = Instance.new("ImageLabel")
 minimizedLogo.Size = UDim2.new(0, 50, 0, 50)
 minimizedLogo.Position = UDim2.new(0, 20, 0, 40)
 minimizedLogo.BackgroundTransparency = 1
-minimizedLogo.Image = "rbxassetid://PUT_YOUR_LOGO_IMAGE_ID" -- ใส่รูปโลโก้ที่คุณอัพ
+minimizedLogo.Image = "จ้มกับบื้อ.png" -- ใส่รูปโลโก้ที่คุณอัพ
 minimizedLogo.Visible = false
 minimizedLogo.Parent = screenGui
 
@@ -150,3 +150,4 @@ local scriptBtn = createMenuButton("Script", "📜")
 local playersBtn = createMenuButton("Players", "👤")
 local teleportBtn = createMenuButton("Teleport", "📍")
 local settingsBtn = createMenuButton("Settings", "⚙")
+
