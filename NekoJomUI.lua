@@ -1,6 +1,4 @@
---// Roblox UI with Minimize, Maximize, Close, Drag, and Logo when minimized
-
--- Services
+--// Roblox UI Menu (เหมือนในภาพ)
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
@@ -11,102 +9,68 @@ screenGui.ResetOnSpawn = false
 
 -- Main Frame
 local mainFrame = Instance.new("Frame")
-mainFrame.Size = UDim2.new(0, 500, 0, 300)
-mainFrame.Position = UDim2.new(0.25, 0, 0.25, 0)
-mainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+mainFrame.Size = UDim2.new(0, 250, 0, 400)
+mainFrame.Position = UDim2.new(0.05, 0, 0.2, 0)
+mainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 30)
 mainFrame.BackgroundTransparency = 0.2
 mainFrame.BorderSizePixel = 0
-mainFrame.Active = true
-mainFrame.Draggable = true
 mainFrame.Parent = screenGui
 
--- Title Bar
-local titleBar = Instance.new("Frame")
-titleBar.Size = UDim2.new(1, 0, 0, 30)
-titleBar.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-titleBar.BorderSizePixel = 0
-titleBar.Parent = mainFrame
+-- UI Corner
+local uiCorner = Instance.new("UICorner")
+uiCorner.CornerRadius = UDim.new(0, 12)
+uiCorner.Parent = mainFrame
 
--- Title Text
-local title = Instance.new("TextLabel")
-title.Size = UDim2.new(1, -90, 1, 0)
-title.Position = UDim2.new(0, 10, 0, 0)
-title.BackgroundTransparency = 1
-title.Text = "NekoJom | Custom Hub"
-title.Font = Enum.Font.GothamBold
-title.TextSize = 16
-title.TextColor3 = Color3.fromRGB(255, 255, 255)
-title.TextXAlignment = Enum.TextXAlignment.Left
-title.Parent = titleBar
+-- UI List Layout
+local layout = Instance.new("UIListLayout")
+layout.Padding = UDim.new(0, 5)
+layout.FillDirection = Enum.FillDirection.Vertical
+layout.HorizontalAlignment = Enum.HorizontalAlignment.Left
+layout.SortOrder = Enum.SortOrder.LayoutOrder
+layout.Parent = mainFrame
 
--- Buttons (Minimize, Maximize, Close)
-local function createButton(name, text, posX)
+-- Function สร้างปุ่มเมนู
+local function createMenuButton(name, text, icon)
     local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(0, 25, 0, 25)
-    btn.Position = UDim2.new(1, posX, 0.1, 0)
-    btn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-    btn.Text = text
+    btn.Size = UDim2.new(1, -10, 0, 40)
+    btn.Position = UDim2.new(0, 5, 0, 0)
+    btn.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+    btn.Text = "   " .. text  -- เว้นวรรคเผื่อ icon
     btn.Font = Enum.Font.GothamBold
-    btn.TextSize = 14
-    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    btn.Parent = titleBar
+    btn.TextSize = 16
+    btn.TextColor3 = Color3.fromRGB(220, 220, 220)
+    btn.TextXAlignment = Enum.TextXAlignment.Left
+    btn.Parent = mainFrame
+
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 8)
+    corner.Parent = btn
+
+    -- ไอคอน
+    local iconLabel = Instance.new("TextLabel")
+    iconLabel.Size = UDim2.new(0, 30, 0, 40)
+    iconLabel.Position = UDim2.new(0, 0, 0, 0)
+    iconLabel.BackgroundTransparency = 1
+    iconLabel.Text = icon
+    iconLabel.Font = Enum.Font.GothamBold
+    iconLabel.TextSize = 18
+    iconLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+    iconLabel.Parent = btn
+
+    -- Hover Effect
+    btn.MouseEnter:Connect(function()
+        btn.BackgroundColor3 = Color3.fromRGB(45, 45, 60)
+    end)
+    btn.MouseLeave:Connect(function()
+        btn.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+    end)
+
     return btn
 end
 
-local minimizeBtn = createButton("Minimize", "_", -80)
-local maximizeBtn = createButton("Maximize", "▢", -55)
-local closeBtn = createButton("Close", "X", -30)
-
--- Content
-local content = Instance.new("Frame")
-content.Size = UDim2.new(1, 0, 1, -30)
-content.Position = UDim2.new(0, 0, 0, 30)
-content.BackgroundTransparency = 1
-content.Parent = mainFrame
-
--- Example Label
-local label = Instance.new("TextLabel")
-label.Size = UDim2.new(1, 0, 0, 50)
-label.Position = UDim2.new(0, 0, 0, 10)
-label.BackgroundTransparency = 1
-label.Text = "Hello! This is your custom UI 🎉"
-label.Font = Enum.Font.Gotham
-label.TextSize = 18
-label.TextColor3 = Color3.fromRGB(255, 255, 255)
-label.Parent = content
-
--- Minimized Logo
-local minimizedLogo = Instance.new("ImageButton")
-minimizedLogo.Size = UDim2.new(0, 80, 0, 80)
-minimizedLogo.Position = UDim2.new(0.05, 0, 0.7, 0)
-minimizedLogo.Image = "rbxassetid://YOUR_IMAGE_ID" -- 👈 ใส่รูปโลโก้ตรงนี้
-minimizedLogo.Visible = false
-minimizedLogo.Parent = screenGui
-
--- Button Functions
-local minimized = false
-minimizeBtn.MouseButton1Click:Connect(function()
-    mainFrame.Visible = false
-    minimizedLogo.Visible = true
-    minimized = true
-end)
-
-maximizeBtn.MouseButton1Click:Connect(function()
-    if mainFrame.Size == UDim2.new(0, 500, 0, 300) then
-        mainFrame.Size = UDim2.new(0.9, 0, 0.9, 0)
-        mainFrame.Position = UDim2.new(0.05, 0, 0.05, 0)
-    else
-        mainFrame.Size = UDim2.new(0, 500, 0, 300)
-        mainFrame.Position = UDim2.new(0.25, 0, 0.25, 0)
-    end
-end)
-
-closeBtn.MouseButton1Click:Connect(function()
-    screenGui:Destroy()
-end)
-
-minimizedLogo.MouseButton1Click:Connect(function()
-    mainFrame.Visible = true
-    minimizedLogo.Visible = false
-    minimized = false
-end)
+-- เพิ่มเมนูให้เหมือนในรูป
+local homeBtn = createMenuButton("Home", "Home", "🏠")
+local scriptBtn = createMenuButton("Script", "Script", "📜")
+local playersBtn = createMenuButton("Players", "Players", "👤")
+local teleportBtn = createMenuButton("Teleport", "Teleport", "📍")
+local settingsBtn = createMenuButton("Settings", "Settings", "⚙")
