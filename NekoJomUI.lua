@@ -1,177 +1,260 @@
--- // ScreenGui
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "CustomUI"
-screenGui.Parent = game.CoreGui
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
--- // Main Frame
-local mainFrame = Instance.new("Frame")
-mainFrame.Size = UDim2.new(0, 650, 0, 400)
-mainFrame.Position = UDim2.new(0.5, -325, 0.5, -200)
-mainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 30)
-mainFrame.Active = true
-mainFrame.Draggable = true
-mainFrame.Parent = screenGui
+local Window = Fluent:CreateWindow({
+    Title = "Fluent " .. Fluent.Version,
+    SubTitle = "by dawid",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
+})
 
-local corner = Instance.new("UICorner")
-corner.CornerRadius = UDim.new(0, 12)
-corner.Parent = mainFrame
+--Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
+local Tabs = {
+    Main = Window:AddTab({ Title = "Main", Icon = "" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+}
 
--- // Top Bar
-local topBar = Instance.new("Frame")
-topBar.Size = UDim2.new(1, 0, 0, 30)
-topBar.BackgroundColor3 = Color3.fromRGB(15, 15, 25)
-topBar.BorderSizePixel = 0
-topBar.Parent = mainFrame
+local Options = Fluent.Options
 
-local title = Instance.new("TextLabel")
-title.Text = "Nekojom | All Scripts"
-title.Size = UDim2.new(1, -90, 1, 0)
-title.Position = UDim2.new(0, 10, 0, 0)
-title.BackgroundTransparency = 1
-title.Font = Enum.Font.GothamBold
-title.TextSize = 14
-title.TextColor3 = Color3.fromRGB(255, 255, 255)
-title.TextXAlignment = Enum.TextXAlignment.Left
-title.Parent = topBar
+do
+    Fluent:Notify({
+        Title = "Notification",
+        Content = "This is a notification",
+        SubContent = "SubContent", -- Optional
+        Duration = 5 -- Set to nil to make the notification not disappear
+    })
 
--- ปุ่ม Minimize / Maximize / Close
-local function createTopButton(txt, posX)
-    local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(0, 30, 1, 0)
-    btn.Position = UDim2.new(1, posX, 0, 0)
-    btn.BackgroundTransparency = 1
-    btn.Text = txt
-    btn.Font = Enum.Font.GothamBold
-    btn.TextSize = 18
-    btn.TextColor3 = Color3.fromRGB(200, 200, 200)
-    btn.Parent = topBar
-    return btn
-end
 
-local minimizeBtn = createTopButton("-", -90)
-local maximizeBtn = createTopButton("□", -60)
-local closeBtn = createTopButton("X", -30)
 
--- โลโก้ตอนย่อ
-local CoreGui = game:GetService("CoreGui")
-local logoGui = Instance.new("ScreenGui")
+    Tabs.Main:AddParagraph({
+        Title = "Paragraph",
+        Content = "This is a paragraph.\nSecond line!"
+    })
 
-logoGui.Name = "NekojomHub"
-logoGui.ResetOnSpawn = false
-logoGui.Parent = CoreGui.ScreenGui
 
-local screenGui = nil
-while not screenGui do
-    for _, gui in pairs(CoreGui:GetChildren()) do
-        if gui:IsA("ScreenGui") then
-            screenGui = gui
-            break
+
+    Tabs.Main:AddButton({
+        Title = "Button",
+        Description = "Very important button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
         end
-    end
-    task.wait(0.1)
-end
+    })
 
-local logoButton = Instance.new("ImageButton")
-logoButton.Name = "LogoButton"
-logoButton.Size = UDim2.new(0, 55, 0, 55)
-logoButton.Position = UDim2.new(0, 65, 0, 50)
-logoButton.BackgroundTransparency = 1
-logoButton.Image = "rbxassetid://118974663345349"
-logoButton.Parent = logoGui
-logoButton.ZIndex = 999
-logoButton.MouseButton1Click:Connect(function()
- 
-end)
 
--- ปิด
-closeBtn.MouseButton1Click:Connect(function()
-    screenGui:Destroy()
-end)
 
--- ย่อ
-local minimized = false
-minimizeBtn.MouseButton1Click:Connect(function()
-    minimized = not minimized
-    mainFrame.Visible = not minimized
-    minimizedLogo.Visible = minimized
-end)
+    local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Toggle", Default = false })
 
--- ขยาย
-local maximized = false
-maximizeBtn.MouseButton1Click:Connect(function()
-    if not maximized then
-        mainFrame:TweenSize(UDim2.new(1, -40, 1, -40), "Out", "Sine", 0.3, true)
-        mainFrame:TweenPosition(UDim2.new(0, 20, 0, 20), "Out", "Sine", 0.3, true)
-    else
-        mainFrame:TweenSize(UDim2.new(0, 650, 0, 400), "Out", "Sine", 0.3, true)
-        mainFrame:TweenPosition(UDim2.new(0.5, -325, 0.5, -200), "Out", "Sine", 0.3, true)
-    end
-    maximized = not maximized
-end)
-
--- // Sidebar Menu
-local sidebar = Instance.new("Frame")
-sidebar.Size = UDim2.new(0, 180, 1, -30)
-sidebar.Position = UDim2.new(0, 0, 0, 30)
-sidebar.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
-sidebar.BorderSizePixel = 0
-sidebar.Parent = mainFrame
-
-local sidebarLayout = Instance.new("UIListLayout")
-sidebarLayout.Padding = UDim.new(0, 8)
-sidebarLayout.FillDirection = Enum.FillDirection.Vertical
-sidebarLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-sidebarLayout.SortOrder = Enum.SortOrder.LayoutOrder
-sidebarLayout.Parent = sidebar
-
-local function createMenuButton(text, icon)
-    local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(0.9, 0, 0, 45)
-    btn.BackgroundColor3 = Color3.fromRGB(35, 35, 50)
-    btn.Text = ""
-    btn.AutoButtonColor = false
-    btn.Parent = sidebar
-
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 10)
-    corner.Parent = btn
-
-    local iconLabel = Instance.new("TextLabel")
-    iconLabel.Size = UDim2.new(0, 40, 1, 0)
-    iconLabel.BackgroundTransparency = 1
-    iconLabel.Text = icon
-    iconLabel.Font = Enum.Font.GothamBold
-    iconLabel.TextSize = 20
-    iconLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
-    iconLabel.Parent = btn
-
-    local txtLabel = Instance.new("TextLabel")
-    txtLabel.Size = UDim2.new(1, -40, 1, 0)
-    txtLabel.Position = UDim2.new(0, 40, 0, 0)
-    txtLabel.BackgroundTransparency = 1
-    txtLabel.Text = text
-    txtLabel.Font = Enum.Font.GothamBold
-    txtLabel.TextSize = 16
-    txtLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
-    txtLabel.TextXAlignment = Enum.TextXAlignment.Left
-    txtLabel.Parent = btn
-
-    btn.MouseEnter:Connect(function()
-        btn.BackgroundColor3 = Color3.fromRGB(50, 50, 70)
-    end)
-    btn.MouseLeave:Connect(function()
-        btn.BackgroundColor3 = Color3.fromRGB(35, 35, 50)
+    Toggle:OnChanged(function()
+        print("Toggle changed:", Options.MyToggle.Value)
     end)
 
-    return btn
+    Options.MyToggle:SetValue(false)
+
+
+    
+    local Slider = Tabs.Main:AddSlider("Slider", {
+        Title = "Slider",
+        Description = "This is a slider",
+        Default = 2,
+        Min = 0,
+        Max = 5,
+        Rounding = 1,
+        Callback = function(Value)
+            print("Slider was changed:", Value)
+        end
+    })
+
+    Slider:OnChanged(function(Value)
+        print("Slider changed:", Value)
+    end)
+
+    Slider:SetValue(3)
+
+
+
+    local Dropdown = Tabs.Main:AddDropdown("Dropdown", {
+        Title = "Dropdown",
+        Values = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen"},
+        Multi = false,
+        Default = 1,
+    })
+
+    Dropdown:SetValue("four")
+
+    Dropdown:OnChanged(function(Value)
+        print("Dropdown changed:", Value)
+    end)
+
+
+    
+    local MultiDropdown = Tabs.Main:AddDropdown("MultiDropdown", {
+        Title = "Dropdown",
+        Description = "You can select multiple values.",
+        Values = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen"},
+        Multi = true,
+        Default = {"seven", "twelve"},
+    })
+
+    MultiDropdown:SetValue({
+        three = true,
+        five = true,
+        seven = false
+    })
+
+    MultiDropdown:OnChanged(function(Value)
+        local Values = {}
+        for Value, State in next, Value do
+            table.insert(Values, Value)
+        end
+        print("Mutlidropdown changed:", table.concat(Values, ", "))
+    end)
+
+
+
+    local Colorpicker = Tabs.Main:AddColorpicker("Colorpicker", {
+        Title = "Colorpicker",
+        Default = Color3.fromRGB(96, 205, 255)
+    })
+
+    Colorpicker:OnChanged(function()
+        print("Colorpicker changed:", Colorpicker.Value)
+    end)
+    
+    Colorpicker:SetValueRGB(Color3.fromRGB(0, 255, 140))
+
+
+
+    local TColorpicker = Tabs.Main:AddColorpicker("TransparencyColorpicker", {
+        Title = "Colorpicker",
+        Description = "but you can change the transparency.",
+        Transparency = 0,
+        Default = Color3.fromRGB(96, 205, 255)
+    })
+
+    TColorpicker:OnChanged(function()
+        print(
+            "TColorpicker changed:", TColorpicker.Value,
+            "Transparency:", TColorpicker.Transparency
+        )
+    end)
+
+
+
+    local Keybind = Tabs.Main:AddKeybind("Keybind", {
+        Title = "KeyBind",
+        Mode = "Toggle", -- Always, Toggle, Hold
+        Default = "LeftControl", -- String as the name of the keybind (MB1, MB2 for mouse buttons)
+
+        -- Occurs when the keybind is clicked, Value is `true`/`false`
+        Callback = function(Value)
+            print("Keybind clicked!", Value)
+        end,
+
+        -- Occurs when the keybind itself is changed, `New` is a KeyCode Enum OR a UserInputType Enum
+        ChangedCallback = function(New)
+            print("Keybind changed!", New)
+        end
+    })
+
+    -- OnClick is only fired when you press the keybind and the mode is Toggle
+    -- Otherwise, you will have to use Keybind:GetState()
+    Keybind:OnClick(function()
+        print("Keybind clicked:", Keybind:GetState())
+    end)
+
+    Keybind:OnChanged(function()
+        print("Keybind changed:", Keybind.Value)
+    end)
+
+    task.spawn(function()
+        while true do
+            wait(1)
+
+            -- example for checking if a keybind is being pressed
+            local state = Keybind:GetState()
+            if state then
+                print("Keybind is being held down")
+            end
+
+            if Fluent.Unloaded then break end
+        end
+    end)
+
+    Keybind:SetValue("MB2", "Toggle") -- Sets keybind to MB2, mode to Hold
+
+
+    local Input = Tabs.Main:AddInput("Input", {
+        Title = "Input",
+        Default = "Default",
+        Placeholder = "Placeholder",
+        Numeric = false, -- Only allows numbers
+        Finished = false, -- Only calls callback when you press enter
+        Callback = function(Value)
+            print("Input changed:", Value)
+        end
+    })
+
+    Input:OnChanged(function()
+        print("Input updated:", Input.Value)
+    end)
 end
 
--- เมนูทั้งหมด
-local homeBtn = createMenuButton("Home", "🏠")
-local scriptBtn = createMenuButton("Script", "📜")
-local playersBtn = createMenuButton("Players", "👤")
-local teleportBtn = createMenuButton("Teleport", "📍")
-local settingsBtn = createMenuButton("Settings", "⚙")
+
+-- Addons:
+-- SaveManager (Allows you to have a configuration system)
+-- InterfaceManager (Allows you to have a interface managment system)
+
+-- Hand the library over to our managers
+SaveManager:SetLibrary(Fluent)
+InterfaceManager:SetLibrary(Fluent)
+
+-- Ignore keys that are used by ThemeManager.
+-- (we dont want configs to save themes, do we?)
+SaveManager:IgnoreThemeSettings()
+
+-- You can add indexes of elements the save manager should ignore
+SaveManager:SetIgnoreIndexes({})
+
+-- use case for doing it this way:
+-- a script hub could have themes in a global folder
+-- and game configs in a separate folder per game
+InterfaceManager:SetFolder("FluentScriptHub")
+SaveManager:SetFolder("FluentScriptHub/specific-game")
+
+InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+SaveManager:BuildConfigSection(Tabs.Settings)
 
 
+Window:SelectTab(1)
 
+Fluent:Notify({
+    Title = "Fluent",
+    Content = "The script has been loaded.",
+    Duration = 8
+})
+
+-- You can use the SaveManager:LoadAutoloadConfig() to load a config
+-- which has been marked to be one that auto loads!
+SaveManager:LoadAutoloadConfig()
