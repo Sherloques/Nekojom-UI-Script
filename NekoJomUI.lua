@@ -28,6 +28,11 @@ local Script = {
     "BlueX Hub",
     "Ronix hub",
 }
+local Other = {
+    "Fiy",
+    "Anti AFK",
+    "infiniteyield",
+}
 
 
 do
@@ -191,3 +196,4 @@ end
 dragify(logoButton, logoButton)
 
 SaveManager:LoadAutoloadConfig()
+
