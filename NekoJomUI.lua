@@ -89,6 +89,36 @@ do
     })
 end
 
+    Tabs.Script:AddSection("[ Other / อื่นๆ ]")
+
+    local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
+        Title = "Select Scripts",
+        Values = Script,
+        Multi = false,
+        Default = "เลือกสคริปต์",
+    })
+
+    --Dropdown:SetValue("four")
+
+    Dropdown:OnChanged(function(Value)
+        Scripts = Value
+    end)
+--------------------------------------------
+    Tabs.Script:AddButton({
+        Title = "Click To Execute",
+        Description = "กดเพื่อรันสคริปต์",
+        Callback = function()
+            if Scripts == "Fiy" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/Fly"))();
+            elseif Scripts == "AFK" then
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/antiafk'))();
+            elseif Scripts == "infiniteyield" then
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/infiniteyield'))();
+
+            end
+        end
+    })
+end
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
@@ -173,4 +203,3 @@ end
 dragify(logoButton, logoButton)
 
 SaveManager:LoadAutoloadConfig()
-
