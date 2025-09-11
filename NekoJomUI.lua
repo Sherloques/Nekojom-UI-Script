@@ -1,156 +1,144 @@
---// Roblox UI | มีโลโก้ตอนพับหน้าต่าง
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-local UserInputService = game:GetService("UserInputService")
-
--- ScreenGui
+-- // ScreenGui
 local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = player:WaitForChild("PlayerGui")
-screenGui.ResetOnSpawn = false
+screenGui.Name = "CustomUI"
+screenGui.Parent = game.CoreGui
 
--- Main Frame
+-- // Main Frame
 local mainFrame = Instance.new("Frame")
-mainFrame.Size = UDim2.new(0, 600, 0, 400)
-mainFrame.Position = UDim2.new(0.2, 0, 0.2, 0)
+mainFrame.Size = UDim2.new(0, 650, 0, 400)
+mainFrame.Position = UDim2.new(0.5, -325, 0.5, -200)
 mainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 30)
-mainFrame.BackgroundTransparency = 0.15
-mainFrame.BorderSizePixel = 0
 mainFrame.Active = true
 mainFrame.Draggable = true
 mainFrame.Parent = screenGui
 
-local uiCorner = Instance.new("UICorner")
-uiCorner.CornerRadius = UDim.new(0, 12)
-uiCorner.Parent = mainFrame
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 12)
+corner.Parent = mainFrame
 
--- Header
-local header = Instance.new("Frame")
-header.Size = UDim2.new(1, 0, 0, 30)
-header.BackgroundColor3 = Color3.fromRGB(15, 15, 25)
-header.BorderSizePixel = 0
-header.Parent = mainFrame
+-- // Top Bar
+local topBar = Instance.new("Frame")
+topBar.Size = UDim2.new(1, 0, 0, 30)
+topBar.BackgroundColor3 = Color3.fromRGB(15, 15, 25)
+topBar.BorderSizePixel = 0
+topBar.Parent = mainFrame
 
--- Title
 local title = Instance.new("TextLabel")
+title.Text = "Nekojom | All Scripts"
 title.Size = UDim2.new(1, -90, 1, 0)
 title.Position = UDim2.new(0, 10, 0, 0)
 title.BackgroundTransparency = 1
-title.Text = "Nekojom | All Scripts"
 title.Font = Enum.Font.GothamBold
-title.TextSize = 16
+title.TextSize = 14
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
 title.TextXAlignment = Enum.TextXAlignment.Left
-title.Parent = header
+title.Parent = topBar
 
--- ปุ่ม header
-local function createHeaderButton(txt, pos)
+-- ปุ่ม Minimize / Maximize / Close
+local function createTopButton(txt, posX)
     local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(0, 30, 0, 30)
-    btn.Position = pos
+    btn.Size = UDim2.new(0, 30, 1, 0)
+    btn.Position = UDim2.new(1, posX, 0, 0)
     btn.BackgroundTransparency = 1
     btn.Text = txt
     btn.Font = Enum.Font.GothamBold
     btn.TextSize = 18
     btn.TextColor3 = Color3.fromRGB(200, 200, 200)
-    btn.Parent = header
+    btn.Parent = topBar
     return btn
 end
 
-local closeBtn = createHeaderButton("X", UDim2.new(1, -30, 0, 0))
-local minimizeBtn = createHeaderButton("-", UDim2.new(1, -60, 0, 0))
-local maximizeBtn = createHeaderButton("▢", UDim2.new(1, -90, 0, 0))
+local minimizeBtn = createTopButton("-", -90)
+local maximizeBtn = createTopButton("□", -60)
+local closeBtn = createTopButton("X", -30)
 
--- โลโก้ตอนพับ
-local logoBtn = Instance.new("ImageButton")
-logoBtn.Size = UDim2.new(0, 80, 0, 80)
-logoBtn.Position = UDim2.new(0.05, 0, 0.1, 0)
-logoBtn.BackgroundTransparency = 1
-logoBtn.Visible = false
-logoBtn.Image = "1415692702896488450" -- << ใส่ Asset ID รูป (จ้มกับบื้อ) ที่อัปขึ้น Roblox
-logoBtn.Parent = screenGui
+-- โลโก้ตอนย่อ
+local minimizedLogo = Instance.new("ImageLabel")
+minimizedLogo.Size = UDim2.new(0, 50, 0, 50)
+minimizedLogo.Position = UDim2.new(0, 20, 0, 40)
+minimizedLogo.BackgroundTransparency = 1
+minimizedLogo.Image = "rbxassetid://PUT_YOUR_LOGO_IMAGE_ID" -- ใส่รูปโลโก้ที่คุณอัพ
+minimizedLogo.Visible = false
+minimizedLogo.Parent = screenGui
 
--- ฟังก์ชัน
-local minimized = false
-local maximized = false
-local oldSize = mainFrame.Size
-local oldPos = mainFrame.Position
-
+-- ปิด
 closeBtn.MouseButton1Click:Connect(function()
-    mainFrame.Visible = false
-    logoBtn.Visible = true
-    minimized = true
+    screenGui:Destroy()
 end)
 
+-- ย่อ
+local minimized = false
 minimizeBtn.MouseButton1Click:Connect(function()
-    mainFrame.Visible = false
-    logoBtn.Visible = true
-    minimized = true
+    minimized = not minimized
+    mainFrame.Visible = not minimized
+    minimizedLogo.Visible = minimized
 end)
 
-logoBtn.MouseButton1Click:Connect(function()
-    mainFrame.Visible = true
-    logoBtn.Visible = false
-    minimized = false
-end)
-
+-- ขยาย
+local maximized = false
 maximizeBtn.MouseButton1Click:Connect(function()
     if not maximized then
-        oldSize = mainFrame.Size
-        oldPos = mainFrame.Position
-        mainFrame.Size = UDim2.new(1, -40, 1, -40)
-        mainFrame.Position = UDim2.new(0, 20, 0, 20)
-        maximized = true
+        mainFrame:TweenSize(UDim2.new(1, -40, 1, -40), "Out", "Sine", 0.3, true)
+        mainFrame:TweenPosition(UDim2.new(0, 20, 0, 20), "Out", "Sine", 0.3, true)
     else
-        mainFrame.Size = oldSize
-        mainFrame.Position = oldPos
-        maximized = false
+        mainFrame:TweenSize(UDim2.new(0, 650, 0, 400), "Out", "Sine", 0.3, true)
+        mainFrame:TweenPosition(UDim2.new(0.5, -325, 0.5, -200), "Out", "Sine", 0.3, true)
     end
+    maximized = not maximized
 end)
 
--- Sidebar Menu
+-- // Sidebar Menu
 local sidebar = Instance.new("Frame")
-sidebar.Size = UDim2.new(0, 200, 1, -30)
+sidebar.Size = UDim2.new(0, 180, 1, -30)
 sidebar.Position = UDim2.new(0, 0, 0, 30)
 sidebar.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
 sidebar.BorderSizePixel = 0
 sidebar.Parent = mainFrame
 
 local sidebarLayout = Instance.new("UIListLayout")
-sidebarLayout.Padding = UDim.new(0, 5)
+sidebarLayout.Padding = UDim.new(0, 8)
+sidebarLayout.FillDirection = Enum.FillDirection.Vertical
+sidebarLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 sidebarLayout.SortOrder = Enum.SortOrder.LayoutOrder
 sidebarLayout.Parent = sidebar
 
--- Function ปุ่มเมนู
 local function createMenuButton(text, icon)
     local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(1, -10, 0, 40)
-    btn.Position = UDim2.new(0, 5, 0, 0)
-    btn.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
-    btn.Text = "   " .. text
-    btn.Font = Enum.Font.GothamBold
-    btn.TextSize = 16
-    btn.TextColor3 = Color3.fromRGB(220, 220, 220)
-    btn.TextXAlignment = Enum.TextXAlignment.Left
+    btn.Size = UDim2.new(0.9, 0, 0, 45)
+    btn.BackgroundColor3 = Color3.fromRGB(35, 35, 50)
+    btn.Text = ""
+    btn.AutoButtonColor = false
     btn.Parent = sidebar
 
     local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 8)
+    corner.CornerRadius = UDim.new(0, 10)
     corner.Parent = btn
 
     local iconLabel = Instance.new("TextLabel")
-    iconLabel.Size = UDim2.new(0, 30, 0, 40)
+    iconLabel.Size = UDim2.new(0, 40, 1, 0)
     iconLabel.BackgroundTransparency = 1
     iconLabel.Text = icon
     iconLabel.Font = Enum.Font.GothamBold
-    iconLabel.TextSize = 18
+    iconLabel.TextSize = 20
     iconLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
     iconLabel.Parent = btn
 
+    local txtLabel = Instance.new("TextLabel")
+    txtLabel.Size = UDim2.new(1, -40, 1, 0)
+    txtLabel.Position = UDim2.new(0, 40, 0, 0)
+    txtLabel.BackgroundTransparency = 1
+    txtLabel.Text = text
+    txtLabel.Font = Enum.Font.GothamBold
+    txtLabel.TextSize = 16
+    txtLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+    txtLabel.TextXAlignment = Enum.TextXAlignment.Left
+    txtLabel.Parent = btn
+
     btn.MouseEnter:Connect(function()
-        btn.BackgroundColor3 = Color3.fromRGB(45, 45, 60)
+        btn.BackgroundColor3 = Color3.fromRGB(50, 50, 70)
     end)
     btn.MouseLeave:Connect(function()
-        btn.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+        btn.BackgroundColor3 = Color3.fromRGB(35, 35, 50)
     end)
 
     return btn
