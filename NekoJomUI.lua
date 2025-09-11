@@ -1,22 +1,20 @@
-if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
-
 local Fluent = loadstring(game:HttpGet("http://raw.githubusercontent.com/GhostSobe/Library/refs/heads/main/Fluent/Fluent"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Library/refs/heads/main/Fluent/InterfaceManager"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Nekojom | All Scripts",
-    SubTitle = "by jom",
+    Title = "Fluent ",
+    SubTitle = "by dawid",
     TabWidth = 160,
-    Size = UDim2.fromOffset(550, 350),
+    Size = UDim2.fromOffset(580, 360),
     Acrylic = false,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 
+-- https://lucide.dev/icons/ เว็บเอา icon
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://10709782845" }),
-    Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
     TP = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://10709775894" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -24,98 +22,8 @@ local Tabs = {
 local Plr = game:GetService("Players")
 local LocalPlr = Plr.LocalPlayer
 local Options = Fluent.Options
-local StarterGui = game:GetService("StarterGui")
-
-local Script = {
-    "Lemon Hub",
-    "BlueX Hub",
-    "Ronix hub",
-}
-local Other = {
-    "Fiy",
-    "Anti AFK",
-    "infiniteyield",
-}
-
 
 do
-    pcall(function()
-    Tabs.Main:AddParagraph({
-        Title = "Welcome To My Script",
-        Content = "หากสคริปต์ไหนใช้ไม่ได้โปรดติดต่อที่ดิสคอร์ดด้านล่าง\nหรืออยากให้เพิ่มสคริปต์ไหนก็สามารถแจ้งได้ที่ Discord ด้านล่าง"
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Discord Invite",
-        Description = "กดเพื่อคัดลอกลิ้งค์ดิสคอร์ด",
-        Callback = function()
-            setclipboard("https://discord.gg/yt-rocket")
-            StarterGui:SetCore("SendNotification", {
-                Title = "System",
-                Icon = "rbxassetid://86373171106525",
-                Text = "ได้คัดลอกลิ้งค์ไปยังคีบอร์ดของคุณแล้ว",
-                Duration = 4,
-            })
-        end
-    })
-    end)
-
-    Tabs.Script:AddSection("[ key / มีคีย์ ]")
-
-    local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = Script,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
-
-    Dropdown:OnChanged(function(Value)
-        Scripts = Value
-    end)
-
-    Tabs.Script:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if Scripts == "Lemon Hub" then
-                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
-            elseif Scripts == "BlueX Hub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
-            elseif Scripts == "Ronix hub" then
-                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
-            end
-        end
-    })
-
-
-    Tabs.Script:AddSection("[ Other / อื่นๆ ]")
-
-    local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = Other,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
-
-    Dropdown:OnChanged(function(Value)
-        Others = Value
-    end)
-
-    Tabs.Script:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if Others == "Fiy" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/Fly"))();
-            elseif Others == "Anti AFK" then
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/antiafk'))();
-            elseif Others == "infiniteyield" then
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/infiniteyield'))();
-            end
-        end
-    })
-end
-
     Tabs.Main:AddSection("[ Speed / ความเร็ว ]")
 
     local Input = Tabs.Main:AddInput("Input", {
@@ -166,6 +74,13 @@ end
         end
     })
 
+    --[[ วิธีหาตำแหน่ง CFrame
+    1.ให้ไปยืนจุดที่ต้องการจะให้วาปไป
+    2.คัดลอกสคริปนี้ไปรัน
+    setclipboard(tostring(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
+    จากนั้นมันจะคัดลอกคำแหน่งให้แล้วเอามาวางใน CFrame.new(ตำแหน่งที่ได้มา)
+    ]]
+
     Tabs.TP:AddSection("[ Teleport / วาป ]")
 
     Tabs.TP:AddButton({
@@ -177,21 +92,23 @@ end
     })
 end
 
+
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
 SaveManager:IgnoreThemeSettings()
 SaveManager:SetIgnoreIndexes({})
-InterfaceManager:SetFolder("Ghost Hub")
-SaveManager:SetFolder("Ghost Hub/specific-game")
+InterfaceManager:SetFolder("FluentScriptHub")
+SaveManager:SetFolder("FluentScriptHub/specific-game")
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
--- SaveManager:BuildConfigSection(Tabs.Settings)
-Window:SelectTab(1)
+SaveManager:BuildConfigSection(Tabs.Settings)
 
+
+Window:SelectTab(1)
 
 local CoreGui = game:GetService("CoreGui")
 local logoGui = Instance.new("ScreenGui")
 
-logoGui.Name = "JomHub"
+logoGui.Name = "NekoJomHub"
 logoGui.ResetOnSpawn = false
 logoGui.Parent = CoreGui.ScreenGui
 
@@ -211,7 +128,7 @@ logoButton.Name = "LogoButton"
 logoButton.Size = UDim2.new(0, 55, 0, 55)
 logoButton.Position = UDim2.new(0, 65, 0, 50)
 logoButton.BackgroundTransparency = 1
-logoButton.Image = "rbxassetid://86373171106525"
+logoButton.Image = "rbxassetid://118974663345349"
 logoButton.Parent = logoGui
 logoButton.ZIndex = 999
 logoButton.MouseButton1Click:Connect(function()
