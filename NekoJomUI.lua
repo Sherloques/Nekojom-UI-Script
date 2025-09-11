@@ -115,9 +115,9 @@ do
     })
 end
 
-    Tabs.Player:AddSection("[ Speed / ความเร็ว ]")
+    Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
 
-    local Input = Tabs.Player:AddInput("Input", {
+    local Input = Tabs.Players:AddInput("Input", {
         Title = "WalkSpeed",
         Default = "20",
         Placeholder = "",
@@ -132,7 +132,7 @@ end
         --print("Set Speed :", Input.Value)
     end)
     
-    Tabs.Player:AddButton({
+    Tabs.Players:AddButton({
         Title = "Set WalkSpeed",
         Description = "กดเพื่อเปลี่ยนความเร็ว",
         Callback = function()
@@ -140,9 +140,9 @@ end
         end
     })
 
-    Tabs.Player:AddSection("[ Jump / กระโดด ]")
+    Tabs.Players:AddSection("[ Jump / กระโดด ]")
 
-    local Input = Tabs.Player:AddInput("Input", {
+    local Input = Tabs.Players:AddInput("Input", {
         Title = "JumpPower",
         Default = "50",
         Placeholder = "",
@@ -157,7 +157,7 @@ end
         --print("Set Speed :", Input.Value)
     end)
 
-    Tabs.Player:AddButton({
+    Tabs.Players:AddButton({
         Title = "Set JumpPower",
         Description = "กดเพื่อเปลี่ยนพลังกระโดด",
         Callback = function()
