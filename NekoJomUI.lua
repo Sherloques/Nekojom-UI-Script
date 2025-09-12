@@ -29,7 +29,8 @@ local StarterGui = game:GetService("StarterGui")
 local Script = {
     "Lemon Hub",
     "BlueX Hub",
-    "Ronix hub",
+    "Ronix",
+    "Bonk Hub",
 }
 local Other = {
     "Fiy",
@@ -81,8 +82,10 @@ do
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
             elseif Scripts == "BlueX Hub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
-            elseif Scripts == "Ronix hub" then
+            elseif Scripts == "Ronix" then
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
+            elseif Scripts == "Bonk Hub" then
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
             end
         end
     })
