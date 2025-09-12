@@ -57,7 +57,6 @@ local nighttab = {
     "VectorHub",
     "NutHub",
 }
-
 do
     pcall(function()
     Tabs.Home:AddParagraph({
