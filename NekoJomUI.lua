@@ -18,6 +18,7 @@ local Tabs = {
     Home = Window:AddTab({ Title = "Home", Icon = "home" }),
     Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
     Fish = Window:AddTab({ Title = "Fish It", Icon = "rbxassetid://10734907168" }),
+    sab = Window:AddTab({ Title = "Brainrot", Icon = "rbxassetid://10709775894" }),
     Players = Window:AddTab({ Title = "Players", Icon = "rbxassetid://10747373176" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -30,7 +31,7 @@ local StarterGui = game:GetService("StarterGui")
 local Script = {
     "Lemon Hub",
     "BlueX Hub",
-    "Ronix hub",
+    "Ronix Hub",
 }
 local Other = {
     "Fiy",
@@ -42,7 +43,11 @@ local fishtab = {
     "CHIYO",
     "BEBAS",
 }
-
+local stiltab = {
+    "Lemon Hub",
+    "Ronix Hub",
+    "BlueX Hub",
+}
 do
     pcall(function()
     Tabs.Home:AddParagraph({
@@ -86,8 +91,8 @@ do
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
             elseif Scripts == "BlueX Hub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
-            elseif Scripts == "Ronix hub" then
-                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
+            elseif Scripts == "Speed Hub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
             end
         end
     })
@@ -147,6 +152,32 @@ end
             end
         end
     })
+
+    local Dropdown = Tabs.sab:AddDropdown("Dropdown", {
+        Title = "Select Scripts",
+        Values = stiltab,
+        Multi = false,
+        Default = "เลือกสคริปต์",
+    })
+
+    --Dropdown:SetValue("four")
+
+    Dropdown:OnChanged(function(Value)
+        stils = Value
+    end)
+
+    Tabs.sab:AddButton({
+        Title = "Click To Execute",
+        Description = "กดเพื่อรันสคริปต์",
+        Callback = function()
+            if stils == "Lemon Hub" then
+                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
+            elseif stils == "BlueX Hub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
+            end
+        end
+    })
+
 
     Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
 
