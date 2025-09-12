@@ -183,7 +183,7 @@ end
 })
 
 -- ใช้ JumpRequest เพื่อให้ทำงานได้แม้ GUI จะจับ input อยู่
-UserInputService.JumpRequest:Connect(function()
+    UserInputService.JumpRequest:Connect(function()
     if not InfiniteJumpEnabled then return end
     local char = LocalPlr and LocalPlr.Character
     if not char then return end
