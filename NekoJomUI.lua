@@ -155,6 +155,73 @@ end
         end
     })
 
+    Tabs.Script:AddSection("[ ไก่ตันแมพ Fish It ]")
+
+    local Dropdown = Tabs.Fish:AddDropdown("Dropdown", {
+        Title = "Select Scripts",
+        Values = fishtab,
+        Multi = false,
+        Default = "เลือกสคริปต์",
+    })
+
+    --Dropdown:SetValue("four")
+
+    Dropdown:OnChanged(function(Value)
+        fishs = Value
+    end)
+
+    Tabs.Fish:AddButton({
+        Title = "Click To Execute",
+        Description = "กดเพื่อรันสคริปต์",
+        Callback = function()
+            if fishs == "BONKHUB" then
+                getgenv().jinkX = {
+    ['Fish It'] = {
+        ['Aura Farmer'] = true, -- ฟาม Aura (ถ้ามีเบ็ด Ghostfinn Rod แล้ว)
+
+        ['Enabled'] = true,
+        ['Webhook'] = '', -- ใส่ลิ้ง Webhook ถ้าไม่ใช้ไม่ต้องใส่
+        
+        ['Fpsboost'] = false,
+        ['Fps_Cap'] = true,
+        ['Fps_Value'] = 300,
+        ['WhiteScreen'] = false,
+
+        -- เบ็ดที่จะให้ซื้อ
+        ['Rods'] = {
+            'Luck Rod',
+            'Carbon Rod',
+            'Grass Rod',
+            'Demascus Rod',
+            'Ice Rod',
+            'Lucky Rod',
+            'Midnight Rod',
+            'Steampunk Rod',
+            'Chrome Rod',
+            'Astral Rod',
+        },
+
+        -- Bobber ที่จะให้ซื้อ
+        ['Baits'] = {
+            'Topwater Bait',
+            'Luck Bait',
+            'Midnight Bait',
+            'Nature Bait',
+            'Chroma Bait',
+            'Dark Matter Bait',
+            'Corrupt Bait',
+            'Aether Bait',
+        },
+    },
+}
+
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/stormskmonkey/JinkX/refs/heads/main/Loader.lua'))()
+
+            end
+        end
+    })
+
+
     local Dropdown = Tabs.sab:AddDropdown("Dropdown", {
         Title = "Select Scripts",
         Values = stiltab,
