@@ -17,7 +17,7 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Home = Window:AddTab({ Title = "Home", Icon = "home" }),
     Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
-    Fish = Window:AddTab({ Title = "Fish It", Icon = "rbxassetid://10709775894" }),
+    Fishit = Window:AddTab({ Title = "Fish It", Icon = "rbxassetid://10734907168" }),
     Players = Window:AddTab({ Title = "Players", Icon = "rbxassetid://114799287720031" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -38,7 +38,7 @@ local Other = {
     "Anti AFK",
     "infiniteyield",
 }
-local FishIt = {
+local Fishit = {
     "Bonk Hub",
     "CHIYO",
     "BEBAS",
@@ -70,24 +70,24 @@ do
 
     local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
         Title = "Select Scripts",
-        Values = FishIt,
+        Values = Fishit,
         Multi = false,
         Default = "เลือกสคริปต์",
     })
 
     Dropdown:OnChanged(function(Value)
-        FishIts = Value
+        Fishits = Value
     end)
 
     Tabs.Script:AddButton({
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
-            if FishIts == "Bonk Hub" then
+            if Fishits == "Bonk Hub" then
                 loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
-            elseif FishIts == "CHIYO" then
+            elseif Fishits == "CHIYO" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
-            elseif FishIts == "BEBAS" then
+            elseif Fishits == "BEBAS" then
                 loadstring(game:HttpGet("https://gist.githubusercontent.com/OmarBinLadek/25e75529e18b38e5d38beab9126fc004/raw/6d1c1c5e0e91373654d2f85ebb65e8221728e26d/freefishit.lua"))();
             end
         end
