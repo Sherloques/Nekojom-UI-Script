@@ -30,8 +30,7 @@ local StarterGui = game:GetService("StarterGui")
 local Script = {
     "Lemon Hub",
     "BlueX Hub",
-    "Ronix",
-    "Bonk Hub",
+    "Ronix hub",
 }
 local Other = {
     "Fiy",
@@ -39,16 +38,17 @@ local Other = {
     "infiniteyield",
 }
 
+
 do
     pcall(function()
     Tabs.Home:AddParagraph({
-        Title = "ยินดีต้อนรับสู่สคริปต์ของฉัน Code By Khaotom",
+        Title = "Welcome To My Script",
         Content = "หากสคริปต์ไหนใช้ไม่ได้โปรดติดต่อที่ดิสคอร์ดด้านล่าง\nหรืออยากให้เพิ่มสคริปต์ไหนก็สามารถแจ้งได้ที่ Discord ด้านล่าง"
     })
 
     Tabs.Home:AddButton({
         Title = "Discord Invite",
-        Description = "กดเพื่อคัดลอกลิ้งค์ Discord",
+        Description = "กดเพื่อคัดลอกลิ้งค์ดิสคอร์ด",
         Callback = function()
             setclipboard("https://discord.gg/yt-rocket")
             StarterGui:SetCore("SendNotification", {
@@ -60,7 +60,6 @@ do
         end
     })
     end)
-
 
     Tabs.Script:AddSection("[ key / มีคีย์ ]")
 
@@ -83,10 +82,8 @@ do
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
             elseif Scripts == "BlueX Hub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
-            elseif Scripts == "Ronix" then
+            elseif Scripts == "Ronix hub" then
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
-            elseif Scripts == "Bonk Hub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
             end
         end
     })
