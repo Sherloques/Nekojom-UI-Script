@@ -38,7 +38,7 @@ local Other = {
     "Anti AFK",
     "infiniteyield",
 }
-local Fish It = {
+local FishIt = {
     "Bonk Hub",
     "CHIYO",
     "BEBAS",
@@ -66,9 +66,9 @@ do
     })
     end)
 
-    Tabs.Fish It:AddSection("[ Fish It / มีคีย์ ]")
+    Tabs.FishIt:AddSection("[ Fish It / มีคีย์ ]")
 
-    local Dropdown = Tabs.Fish It:AddDropdown("Dropdown", {
+    local Dropdown = Tabs.FishIt:AddDropdown("Dropdown", {
         Title = "Select Scripts",
         Values = Fish It,
         Multi = false,
@@ -79,15 +79,15 @@ do
         Fish Its = Value
     end)
 
-    Tabs.Fish It:AddButton({
+    Tabs.FishIt:AddButton({
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
-            if Fish It == "Bonk Hub" then
+            if FishIt == "Bonk Hub" then
                 loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
-            elseif Fish It == "CHIYO" then
+            elseif FishIt == "CHIYO" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
-            elseif Fish It == "BEBAS" then
+            elseif FishIt == "BEBAS" then
                 loadstring(game:HttpGet("https://gist.githubusercontent.com/OmarBinLadek/25e75529e18b38e5d38beab9126fc004/raw/6d1c1c5e0e91373654d2f85ebb65e8221728e26d/freefishit.lua"))();
             end
         end
