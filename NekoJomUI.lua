@@ -118,6 +118,7 @@ do
             end
         end
     })
+end
 
     Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
 
