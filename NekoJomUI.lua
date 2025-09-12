@@ -71,7 +71,7 @@ do
     })
 
     Dropdown:OnChanged(function(Value)
-        Fish = Value
+        Fishs = Value
     end)
 
     Tabs.Fish:AddButton({
