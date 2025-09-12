@@ -194,7 +194,7 @@ end
             humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
         end)
     end
-end
+end)
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
