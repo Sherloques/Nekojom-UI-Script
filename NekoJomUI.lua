@@ -44,6 +44,9 @@ local fishtab = {
     "CHIYO",
     "BEBAS",
 }
+local Jintab = {
+    "JinkXHub",
+}
 local stiltab = {
     "LemonHub",
     "BlueXHub",
@@ -155,11 +158,11 @@ end
         end
     })
 
-    Tabs.Fish:AddSection("[ ไก่ตันแมพ Fish It ]")
+    Tabs.Fish:AddSection("[ ไก่ตัน ]")
 
     local Dropdown = Tabs.Fish:AddDropdown("Dropdown", {
         Title = "Select Scripts",
-        Values = fishtab,
+        Values = Jintab,
         Multi = false,
         Default = "เลือกสคริปต์",
     })
