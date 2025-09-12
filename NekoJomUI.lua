@@ -42,7 +42,7 @@ local Other = {
 do
     pcall(function()
     Tabs.Home:AddParagraph({
-        Title = "Welcome To My Script Code By Khaotom",
+        Title = "Welcome To My Script",
         Content = "หากสคริปต์ไหนใช้ไม่ได้โปรดติดต่อที่ดิสคอร์ดด้านล่าง\nหรืออยากให้เพิ่มสคริปต์ไหนก็สามารถแจ้งได้ที่ Discord ด้านล่าง"
     })
 
