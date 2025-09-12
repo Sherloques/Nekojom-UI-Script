@@ -18,7 +18,7 @@ local Tabs = {
     Home = Window:AddTab({ Title = "Home", Icon = "home" }),
     Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
     Fish = Window:AddTab({ Title = "Fish It", Icon = "rbxassetid://10734907168" }),
-    Players = Window:AddTab({ Title = "Players", Icon = "rbxassetid://114799287720031" }),
+    Players = Window:AddTab({ Title = "Players", Icon = "rbxassetid://10747373176" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
@@ -115,7 +115,7 @@ do
             end
         end
     })
-end
+    end
 
     Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
 
@@ -278,4 +278,3 @@ end
 dragify(logoButton, logoButton)
 
 SaveManager:LoadAutoloadConfig()
-
