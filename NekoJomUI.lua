@@ -167,6 +167,37 @@ end
         end
     })
 
+    Tabs.Players:AddSection("[ Jump / กระโดดไม่จำกัด ]")
+
+    local InfiniteJumpEnabled = false
+
+    Tabs.Players:AddButton({
+    Title = "Toggle Infinite Jump",
+    Description = "กดเพื่อเปิด/ปิด กระโดดไม่จำกัด",
+    Callback = function()
+        InfiniteJumpEnabled = not InfiniteJumpEnabled
+        StarterGui:SetCore("SendNotification", {
+            Title = "Infinite Jump",
+            Text = InfiniteJumpEnabled and "เปิดใช้งานแล้ว" or "ปิดการใช้งานแล้ว",
+            Duration = 3
+        })
+    end
+})
+
+-- ส่วนทำงาน Infinite Jump
+    local UserInputService = game:GetService("UserInputService")
+
+    UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if InfiniteJumpEnabled and input.KeyCode == Enum.KeyCode.Space then
+        local humanoid = LocalPlr.Character and LocalPlr.Character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        end
+    end
+end)
+
+
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
 SaveManager:IgnoreThemeSettings()
