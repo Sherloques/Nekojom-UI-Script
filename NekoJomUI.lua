@@ -46,6 +46,7 @@ local fishtab = {
     "SpeedHubX",
     "Chiyo",
     "BEBAS",
+    "JinkX",
 }
 local Jintab = {
     "JinkXHub",
@@ -176,6 +177,8 @@ do
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
             elseif fishs == "BEBAS" then
                 loadstring(game:HttpGet("https://gist.githubusercontent.com/OmarBinLadek/25e75529e18b38e5d38beab9126fc004/raw/6d1c1c5e0e91373654d2f85ebb65e8221728e26d/freefishit.lua"))();
+            elseif fishs == "JinkX" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/stormskmonkey/JinkX/refs/heads/main/Loader.lua"))();
             end
         end
     })
