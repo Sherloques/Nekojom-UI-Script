@@ -331,6 +331,38 @@ do
         end
     })
 
+    local Dropdown = Tabs.Hunty:AddDropdown("Dropdown", {
+        Title = "Select Scripts",
+        Values = Huntytab,
+        Multi = false,
+        Default = "เลือกสคริปต์",
+    })
+
+    --Dropdown:SetValue("four")
+
+    Dropdown:OnChanged(function(Value)
+        Huntys = Value
+    end)
+
+    Tabs.Hunty:AddButton({
+        Title = "Click To Execute",
+        Description = "กดเพื่อรันสคริปต์",
+        Callback = function()
+            if Huntys == "BonkHub" then
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
+            elseif Huntys == "SpeedHubX" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
+            elseif Huntys == "VectorHub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
+            elseif Huntys == "ChiyoHub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
+            elseif Huntys == "Zeehub" then
+                loadstring(game:HttpGet("https://zuwz.me/Ls-Zee-Hub-HZ"))();
+            end
+        end
+    })
+
+
     Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
 
     local Input = Tabs.Players:AddInput("Input", {
