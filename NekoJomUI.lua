@@ -411,6 +411,7 @@ do
             LocalPlr.Character.Humanoid.JumpPower = Jump
         end
     })
+end
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
