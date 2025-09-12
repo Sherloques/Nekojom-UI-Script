@@ -85,7 +85,7 @@ do
             elseif Scripts == "Ronix" then
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
             elseif Scripts == "Bonk Hub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
             end
         end
     })
