@@ -173,7 +173,7 @@ do
                 loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
             elseif Scripts == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
-            elseif fishs == "CHIYO" then
+            elseif fishs == "Chiyo" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
             elseif fishs == "BEBAS" then
                 loadstring(game:HttpGet("https://gist.githubusercontent.com/OmarBinLadek/25e75529e18b38e5d38beab9126fc004/raw/6d1c1c5e0e91373654d2f85ebb65e8221728e26d/freefishit.lua"))();
@@ -332,7 +332,7 @@ do
         end
     })
 
-        local Dropdown = Tabs.Hunty:AddDropdown("Dropdown", {
+    local Dropdown = Tabs.Hunty:AddDropdown("Dropdown", {
         Title = "Select Scripts",
         Values = Huntytab,
         Multi = false,
