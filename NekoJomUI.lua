@@ -17,7 +17,7 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Home = Window:AddTab({ Title = "Home", Icon = "home" }),
     Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
-    Fishit = Window:AddTab({ Title = "Fish It", Icon = "rbxassetid://10734907168" }),
+    Fish = Window:AddTab({ Title = "Fish It", Icon = "rbxassetid://10734907168" }),
     Players = Window:AddTab({ Title = "Players", Icon = "rbxassetid://114799287720031" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -76,7 +76,7 @@ do
     })
 
     Dropdown:OnChanged(function(Value)
-        Fishits = Value
+        Fishit = Value
     end)
 
     Tabs.Script:AddButton({
