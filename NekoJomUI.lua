@@ -31,7 +31,7 @@ local StarterGui = game:GetService("StarterGui")
 local Script = {
     "LemonHub",
     "BlueXHub",
-    "SpeedHub",
+    "SpeedHubX",
     "NatHub",
 }
 local Other = {
@@ -51,6 +51,13 @@ local stiltab = {
     "LemonHub",
     "BlueXHub",
 }
+local nighttab = {
+    "BonkHub",
+    "SpeedHubX",
+    "VectorHub",
+    "NutHub",
+}
+
 do
     pcall(function()
     Tabs.Home:AddParagraph({
@@ -94,7 +101,7 @@ do
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
             elseif Scripts == "BlueXHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
-            elseif Scripts == "SpeedHub" then
+            elseif Scripts == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
             elseif Scripts == "NatHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
@@ -224,7 +231,6 @@ end
         end
     })
 
-
     local Dropdown = Tabs.sab:AddDropdown("Dropdown", {
         Title = "Select Scripts",
         Values = stiltab,
@@ -246,6 +252,35 @@ end
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
             elseif stils == "BlueXHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
+            end
+        end
+    })
+
+    local Dropdown = Tabs.night:AddDropdown("Dropdown", {
+        Title = "Select Scripts",
+        Values = nighttab,
+        Multi = false,
+        Default = "เลือกสคริปต์",
+    })
+
+    --Dropdown:SetValue("four")
+
+    Dropdown:OnChanged(function(Value)
+        nights = Value
+    end)
+
+    Tabs.night:AddButton({
+        Title = "Click To Execute",
+        Description = "กดเพื่อรันสคริปต์",
+        Callback = function()
+            if nights == "BonkHub" then
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
+            elseif nights == "SpeedHubX" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+            elseif nights == "VectorHub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))()
+            elseif nights == "NatHub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
             end
         end
     })
