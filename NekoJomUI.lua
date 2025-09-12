@@ -155,7 +155,7 @@ end
         end
     })
 
-    Tabs.Script:AddSection("[ ไก่ตันแมพ Fish It ]")
+    Tabs.Fish:AddSection("[ ไก่ตันแมพ Fish It ]")
 
     local Dropdown = Tabs.Fish:AddDropdown("Dropdown", {
         Title = "Select Scripts",
@@ -174,7 +174,7 @@ end
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
-            if fishs == "BONKHUB" then
+            if fishs == "JinkXHub" then
                 getgenv().jinkX = {
     ['Fish It'] = {
         ['Aura Farmer'] = true, -- ฟาม Aura (ถ้ามีเบ็ด Ghostfinn Rod แล้ว)
