@@ -19,6 +19,7 @@ local Tabs = {
     Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
     Fish = Window:AddTab({ Title = "Fish It", Icon = "rbxassetid://10734907168" }),
     sab = Window:AddTab({ Title = "Brainrot", Icon = "rbxassetid://10734907168" }),
+    night = Window:AddTab({ Title = "99 Night", Icon = "rbxassetid://10734907168" }),
     Players = Window:AddTab({ Title = "Players", Icon = "rbxassetid://10747373176" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -135,7 +136,7 @@ do
             end
         end
     })
-end
+
 
     local Dropdown = Tabs.Fish:AddDropdown("Dropdown", {
         Title = "Select Scripts",
@@ -185,47 +186,45 @@ end
         Callback = function()
             if fishs == "JinkXHub" then
                 getgenv().jinkX = {
-    ['Fish It'] = {
-        ['Aura Farmer'] = true, -- ฟาม Aura (ถ้ามีเบ็ด Ghostfinn Rod แล้ว)
+                    ['Fish It'] = {
+                        ['Aura Farmer'] = true, -- ฟาม Aura (ถ้ามีเบ็ด Ghostfinn Rod แล้ว)
 
-        ['Enabled'] = true,
-        ['Webhook'] = '', -- ใส่ลิ้ง Webhook ถ้าไม่ใช้ไม่ต้องใส่
-        
-        ['Fpsboost'] = false,
-        ['Fps_Cap'] = true,
-        ['Fps_Value'] = 300,
-        ['WhiteScreen'] = false,
+                        ['Enabled'] = true,
+                        ['Webhook'] = '', -- ใส่ลิ้ง Webhook ถ้าไม่ใช้ไม่ต้องใส่
+                        
+                        ['Fpsboost'] = false,
+                        ['Fps_Cap'] = true,
+                        ['Fps_Value'] = 300,
+                        ['WhiteScreen'] = false,
 
-        -- เบ็ดที่จะให้ซื้อ
-        ['Rods'] = {
-            'Luck Rod',
-            'Carbon Rod',
-            'Grass Rod',
-            'Demascus Rod',
-            'Ice Rod',
-            'Lucky Rod',
-            'Midnight Rod',
-            'Steampunk Rod',
-            'Chrome Rod',
-            'Astral Rod',
-        },
+                        -- เบ็ดที่จะให้ซื้อ
+                        ['Rods'] = {
+                            'Luck Rod',
+                            'Carbon Rod',
+                            'Grass Rod',
+                            'Demascus Rod',
+                            'Ice Rod',
+                            'Lucky Rod',
+                            'Midnight Rod',
+                            'Steampunk Rod',
+                            'Chrome Rod',
+                            'Astral Rod',
+                        },
 
-        -- Bobber ที่จะให้ซื้อ
-        ['Baits'] = {
-            'Topwater Bait',
-            'Luck Bait',
-            'Midnight Bait',
-            'Nature Bait',
-            'Chroma Bait',
-            'Dark Matter Bait',
-            'Corrupt Bait',
-            'Aether Bait',
-        },
-    },
-}
-
+                        -- Bobber ที่จะให้ซื้อ
+                        ['Baits'] = {
+                            'Topwater Bait',
+                            'Luck Bait',
+                            'Midnight Bait',
+                            'Nature Bait',
+                            'Chroma Bait',
+                            'Dark Matter Bait',
+                            'Corrupt Bait',
+                            'Aether Bait',
+                        },
+                    },
+                }
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/stormskmonkey/JinkX/refs/heads/main/Loader.lua'))();
-
             end
         end
     })
@@ -254,6 +253,36 @@ end
             end
         end
     })
+
+    local Dropdown = Tabs.night:AddDropdown("Dropdown", {
+        Title = "Select Scripts",
+        Values = nighttab,
+        Multi = false,
+        Default = "เลือกสคริปต์",
+    })
+
+    --Dropdown:SetValue("four")
+
+    Dropdown:OnChanged(function(Value)
+        nights = Value
+    end)
+
+    Tabs.night:AddButton({
+        Title = "Click To Execute",
+        Description = "กดเพื่อรันสคริปต์",
+        Callback = function()
+            if nights == "BonkHub" then
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
+            elseif nights == "SpeedHubX" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
+            elseif nights == "VectorHub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
+            elseif nights == "NatHub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
+            end
+        end
+    })
+
 
     Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
 
@@ -304,6 +333,7 @@ end
             LocalPlr.Character.Humanoid.JumpPower = Jump
         end
     })
+end
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
