@@ -38,7 +38,11 @@ local Other = {
     "Anti AFK",
     "infiniteyield",
 }
-
+local Fish = {
+    "Fiy",
+    "Anti AFK",
+    "infiniteyield",
+}
 do
     pcall(function()
     Tabs.Home:AddParagraph({
