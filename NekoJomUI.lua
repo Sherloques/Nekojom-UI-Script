@@ -18,7 +18,7 @@ local Tabs = {
     Home = Window:AddTab({ Title = "Home", Icon = "home" }),
     Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
     Fish = Window:AddTab({ Title = "Fish It", Icon = "rbxassetid://10734907168" }),
-    sab = Window:AddTab({ Title = "Brainrot", Icon = "rbxassetid://10709775894" }),
+    sab = Window:AddTab({ Title = "Brainrot", Icon = "rbxassetid://10734907168" }),
     Players = Window:AddTab({ Title = "Players", Icon = "rbxassetid://10747373176" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -31,7 +31,7 @@ local StarterGui = game:GetService("StarterGui")
 local Script = {
     "Lemon Hub",
     "BlueX Hub",
-    "Ronix Hub",
+    "Speed Hub",
 }
 local Other = {
     "Fiy",
@@ -45,7 +45,6 @@ local fishtab = {
 }
 local stiltab = {
     "Lemon Hub",
-    "Ronix Hub",
     "BlueX Hub",
 }
 do
