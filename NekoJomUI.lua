@@ -58,6 +58,7 @@ local nighttab = {
     "SpeedHubX",
     "VectorHub",
     "NutHub",
+    "Somtank",
 }
 local autonihttab = {
     "VectorHub",
@@ -92,7 +93,7 @@ do
     })
     end)
 
-    Tabs.Script:AddSection("[ key / มีคีย์ ]")
+    Tabs.Script:AddSection("[ Key / มีคีย์ ]")
 
     local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
         Title = "Select Scripts",
@@ -291,6 +292,8 @@ do
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
             elseif nights == "NatHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
+            elseif nights == "Somtank" then
+                loadstring(game:HttpGet("https://pastebin.com/raw/zyy57X37"))()
             end
         end
     })
