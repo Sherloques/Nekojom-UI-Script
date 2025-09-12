@@ -58,6 +58,10 @@ local nighttab = {
     "VectorHub",
     "NutHub",
 }
+local autonihttab = {
+    "VectorHub",
+    "CaoMod",
+}
 do
     pcall(function()
     Tabs.Home:AddParagraph({
@@ -279,6 +283,39 @@ do
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
             elseif nights == "NatHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
+            end
+        end
+    })
+
+    Tabs.night:AddSection("[ ฟามเพชร ]")
+
+    local Dropdown = Tabs.night:AddDropdown("Dropdown", {
+        Title = "Select Scripts",
+        Values = autonihttab,
+        Multi = false,
+        Default = "เลือกสคริปต์",
+    })
+
+    --Dropdown:SetValue("four")
+
+    Dropdown:OnChanged(function(Value)
+        nights = Value
+    end)
+
+    Tabs.night:AddButton({
+        Title = "Click To Execute",
+        Description = "กดเพื่อรันสคริปต์",
+        Callback = function()
+            if nights == "VectorHub" then
+                getgenv().AutoExecute = true
+                getgenv().V = "Kaitundiamond"
+                getgenv().Webhookurl = "LINKWEBHOOK"
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))()
+            elseif nights == "CaoMod" then
+                getgenv().AutoExecute = true
+                getgenv().WebhookURL = ""
+                getgenv().AutoFarm = true
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/Farm%20Diamond%20v2.lua"))()
             end
         end
     })
