@@ -61,9 +61,9 @@ do
     })
     end)
 
-    Tabs.Fish It:AddSection("[ Fish It / มีคีย์ ]")
+    Tabs.FishIt:AddSection("[ Fish It / มีคีย์ ]")
 
-    local Dropdown = Tabs.Fish It:AddDropdown("Dropdown", {
+    local Dropdown = Tabs.FishIt:AddDropdown("Dropdown", {
         Title = "Select Scripts",
         Values = Fish,
         Multi = false,
