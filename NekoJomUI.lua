@@ -182,19 +182,6 @@ end
     end
     })
 
-    -- ใช้ JumpRequest เพื่อให้ทำงานได้แม้ GUI จะจับ input อยู่
-    UserInputService.JumpRequest:Connect(function()
-    if not InfiniteJumpEnabled then return end
-    local char = LocalPlr and LocalPlr.Character
-    if not char then return end
-    local humanoid = char:FindFirstChildOfClass("Humanoid")
-    if humanoid then
-        pcall(function()
-            humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-        end)
-    end
-end)
-
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
 SaveManager:IgnoreThemeSettings()
