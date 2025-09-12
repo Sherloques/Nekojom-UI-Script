@@ -255,36 +255,6 @@ end
         end
     })
 
-    local Dropdown = Tabs.night:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = nighttab,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
-
-    --Dropdown:SetValue("four")
-
-    Dropdown:OnChanged(function(Value)
-        nights = Value
-    end)
-
-    Tabs.night:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if nights == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
-            elseif nights == "SpeedHubX" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
-            elseif nights == "VectorHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
-            elseif nights == "NatHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
-            end
-        end
-    })
-
-
     Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
 
     local Input = Tabs.Players:AddInput("Input", {
