@@ -167,7 +167,7 @@ end
         end
     })
 
- -- ปุ่มเปิด/ปิด Infinite Jump
+        -- ปุ่มเปิด/ปิด Infinite Jump
     Tabs.Players:AddButton({
     Title = "Toggle Infinite Jump",
     Description = "กดเพื่อเปิด/ปิด กระโดดไม่จำกัด",
@@ -183,7 +183,7 @@ end
     end
 })
 
--- ใช้ JumpRequest เพื่อให้ทำงานได้แม้ GUI จะจับ input อยู่
+       -- ใช้ JumpRequest เพื่อให้ทำงานได้แม้ GUI จะจับ input อยู่
     UserInputService.JumpRequest:Connect(function()
     if not InfiniteJumpEnabled then return end
     local char = LocalPlr and LocalPlr.Character
