@@ -102,9 +102,9 @@ do
             elseif Scripts == "BlueXHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
             elseif Scripts == "SpeedHubX" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
             elseif Scripts == "NatHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
             end
         end
     })
@@ -156,11 +156,11 @@ end
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if fishs == "BONKHUB" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
             elseif fishs == "CHIYO" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
             elseif fishs == "BEBAS" then
-                loadstring(game:HttpGet("https://gist.githubusercontent.com/OmarBinLadek/25e75529e18b38e5d38beab9126fc004/raw/6d1c1c5e0e91373654d2f85ebb65e8221728e26d/freefishit.lua"))()
+                loadstring(game:HttpGet("https://gist.githubusercontent.com/OmarBinLadek/25e75529e18b38e5d38beab9126fc004/raw/6d1c1c5e0e91373654d2f85ebb65e8221728e26d/freefishit.lua"))();
             end
         end
     })
@@ -225,7 +225,7 @@ end
     },
 }
 
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/stormskmonkey/JinkX/refs/heads/main/Loader.lua'))()
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/stormskmonkey/JinkX/refs/heads/main/Loader.lua'))();
 
             end
         end
@@ -274,13 +274,13 @@ end
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if nights == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
             elseif nights == "SpeedHubX" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
             elseif nights == "VectorHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
             elseif nights == "NatHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
             end
         end
     })
@@ -335,34 +335,6 @@ end
             LocalPlr.Character.Humanoid.JumpPower = Jump
         end
     })
-
-    Tabs.Players:AddButton({
-    Title = "Toggle Infinite Jump",
-    Description = "กดเพื่อเปิด/ปิด กระโดดไม่จำกัด",
-    Callback = function()
-        InfiniteJumpEnabled = not InfiniteJumpEnabled
-        pcall(function()
-            StarterGui:SetCore("SendNotification", {
-                Title = "Infinite Jump",
-                Text = InfiniteJumpEnabled and "เปิดใช้งานแล้ว" or "ปิดการใช้งานแล้ว",
-                Duration = 2
-            })
-        end)
-    end
-    })
-
-    -- ใช้ JumpRequest เพื่อให้ทำงานได้แม้ GUI จะจับ input อยู่
-    --  UserInputService.JumpRequest:Connect(function()
-    -- if not InfiniteJumpEnabled then return end
-   -- local char = LocalPlr and LocalPlr.Character
-  --  if not char then return end
-   -- local humanoid = char:FindFirstChildOfClass("Humanoid")
-   -- if humanoid then
-   --     pcall(function()
-    --        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-     --   end)
-  --  end
---end)
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
