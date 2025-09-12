@@ -38,11 +38,7 @@ local Other = {
     "Anti AFK",
     "infiniteyield",
 }
-local Fish = {
-    "Fiy",
-    "Anti AFK",
-    "infiniteyield",
-}
+
 do
     pcall(function()
     Tabs.Home:AddParagraph({
@@ -122,35 +118,6 @@ do
             end
         end
     })
-
-
-    Tabs.Fish:AddSection("[ Fish It / มีคีย์ ]")
-    
-    local Dropdown = Tabs.Fish It:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = Fish,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
-
-    Dropdown:OnChanged(function(Value)
-        Fishs = Value
-    end)
-
-    Tabs.Fish It:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if Fishs == "Fiy" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/Fly"))();
-            elseif Fishs == "Anti AFK" then
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/antiafk'))();
-            elseif Fishs == "infiniteyield" then
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/infiniteyield'))();
-            end
-        end
-    })
-end
 
     Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
 
