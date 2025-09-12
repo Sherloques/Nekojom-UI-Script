@@ -170,7 +170,7 @@ do
         Callback = function()
             if fishs == "BONKHUB" then
                 loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
-            elseif Scripts == "SpeedHubX" then
+            elseif fishs == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
             elseif fishs == "Chiyo" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
@@ -361,7 +361,6 @@ do
             end
         end
     })
-
 
     Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
 
