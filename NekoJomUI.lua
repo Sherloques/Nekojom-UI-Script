@@ -52,7 +52,6 @@ local Jintab = {
 }
 local stiltab = {
     "LemonHub",
-    "BlueXHub",
 }
 local nighttab = {
     "BonkHub",
@@ -263,8 +262,6 @@ do
         Callback = function()
             if stils == "LemonHub" then
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
-            elseif stils == "BlueXHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
             end
         end
     })
