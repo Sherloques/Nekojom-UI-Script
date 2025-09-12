@@ -29,9 +29,10 @@ local Options = Fluent.Options
 local StarterGui = game:GetService("StarterGui")
 
 local Script = {
-    "Lemon Hub",
-    "BlueX Hub",
-    "Speed Hub",
+    "LemonHub",
+    "BlueXHub",
+    "SpeedHub",
+    "NatHub",
 }
 local Other = {
     "Fiy",
@@ -44,8 +45,8 @@ local fishtab = {
     "BEBAS",
 }
 local stiltab = {
-    "Lemon Hub",
-    "BlueX Hub",
+    "LemonHub",
+    "BlueXHub",
 }
 do
     pcall(function()
@@ -86,12 +87,14 @@ do
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
-            if Scripts == "Lemon Hub" then
+            if Scripts == "LemonHub" then
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
-            elseif Scripts == "BlueX Hub" then
+            elseif Scripts == "BlueXHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
-            elseif Scripts == "Speed Hub" then
+            elseif Scripts == "SpeedHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+            elseif Scripts == "NatHub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
             end
         end
     })
@@ -169,9 +172,9 @@ end
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
-            if stils == "Lemon Hub" then
+            if stils == "LemonHub" then
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
-            elseif stils == "BlueX Hub" then
+            elseif stils == "BlueXHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
             end
         end
