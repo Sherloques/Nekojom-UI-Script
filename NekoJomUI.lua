@@ -18,7 +18,7 @@ local Tabs = {
     Home = Window:AddTab({ Title = "Home", Icon = "home" }),
     Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
     Fish = Window:AddTab({ Title = "Fish It", Icon = "rbxassetid://10734907168" }),
-    Players = Window:AddTab({ Title = "Players", Icon = "rbxassetid://10747373176" }),
+    Players = Window:AddTab({ Title = "Players", Icon = "rbxassetid://114799287720031" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
@@ -37,13 +37,17 @@ local Other = {
     "Anti AFK",
     "infiniteyield",
 }
-
+local fishtab = {
+    "BONKHUB",
+    "CHIYO",
+    "BEBAS",
+}
 
 do
     pcall(function()
     Tabs.Home:AddParagraph({
-        Title = "Welcome To My Script Code By Khaotom",
-        Content = "หากสคริปต์ไหนใช้ไม่ได้โปรดติดต่อที่ดิสคอร์ดด้านล่าง\nหรืออยากให้เพิ่มสคริปต์ไหนก็สามารถแจ้งได้ที่ Discord ด้านล่าง"
+        Title = "Welcome To My Script",
+        Content = "หากสคริปต์ไหนใช้ไม่ได้โปรดติดต่อที่ดิสคอร์ดด้านล่าง\nหรืออยากให้เพิ่มสคริปต์ไหนก็สามารถแจ้งได้ที่ Discord ด้านล่าง\nCode By Khaotom"
     })
 
     Tabs.Home:AddButton({
@@ -115,6 +119,34 @@ do
             end
         end
     })
+end
+
+    local Dropdown = Tabs.Fish:AddDropdown("Dropdown", {
+        Title = "Select Scripts",
+        Values = fishtab,
+        Multi = false,
+        Default = "เลือกสคริปต์",
+    })
+
+    --Dropdown:SetValue("four")
+
+    Dropdown:OnChanged(function(Value)
+        fishs = Value
+    end)
+
+    Tabs.Fish:AddButton({
+        Title = "Click To Execute",
+        Description = "กดเพื่อรันสคริปต์",
+        Callback = function()
+            if fishs == "BONKHUB" then
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
+            elseif fishs == "CHIYO" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))()
+            elseif fishs == "BEBAS" then
+                loadstring(game:HttpGet("https://gist.githubusercontent.com/OmarBinLadek/25e75529e18b38e5d38beab9126fc004/raw/6d1c1c5e0e91373654d2f85ebb65e8221728e26d/freefishit.lua"))()
+            end
+        end
+    })
 
     Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
 
@@ -180,21 +212,19 @@ do
         end)
     end
     })
-    
 
---     -- ใช้ JumpRequest เพื่อให้ทำงานได้แม้ GUI จะจับ input อยู่
-    -- UserInputService.JumpRequest:Connect(function()
-    --     if not InfiniteJumpEnabled then return end
-    --     local char = LocalPlr and LocalPlr.Character
-    --     if not char then return end
-    --     local humanoid = char:FindFirstChildOfClass("Humanoid")
-    --     if humanoid then
-    --         pcall(function()
-    --             humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-    --         end)
-    --     end
-    -- end)
-end
+    -- ใช้ JumpRequest เพื่อให้ทำงานได้แม้ GUI จะจับ input อยู่
+    --  UserInputService.JumpRequest:Connect(function()
+    -- if not InfiniteJumpEnabled then return end
+   -- local char = LocalPlr and LocalPlr.Character
+  --  if not char then return end
+   -- local humanoid = char:FindFirstChildOfClass("Humanoid")
+   -- if humanoid then
+   --     pcall(function()
+    --        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+     --   end)
+  --  end
+--end)
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
