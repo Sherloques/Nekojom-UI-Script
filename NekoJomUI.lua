@@ -20,7 +20,6 @@ local Tabs = {
     Fish = Window:AddTab({ Title = "Fish It", Icon = "rbxassetid://10734907168" }),
     sab = Window:AddTab({ Title = "Brainrot", Icon = "rbxassetid://10734907168" }),
     night = Window:AddTab({ Title = "99 Night", Icon = "rbxassetid://10734907168" }),
-    Hunty = Window:AddTab({ Title = "Hunty zombie", Icon = "rbxassetid://10734907168" }),
     Players = Window:AddTab({ Title = "Players", Icon = "rbxassetid://10747373176" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -42,9 +41,8 @@ local Other = {
     "infiniteyield",
 }
 local fishtab = {
-    "BonkHub",
-    "SpeedHubX",
-    "Chiyo",
+    "BONKHUB",
+    "CHIYO",
     "BEBAS",
 }
 local Jintab = {
@@ -59,17 +57,6 @@ local nighttab = {
     "SpeedHubX",
     "VectorHub",
     "NutHub",
-}
-local autonihttab = {
-    "VectorHub",
-    "CaoMod",
-}
-local Huntytab = {
-    "BonkHub",
-    "SpeedHubX",
-    "Chiyo",
-    "Zeehub",
-    "VectorHub",
 }
 do
     pcall(function()
@@ -170,9 +157,7 @@ do
         Callback = function()
             if fishs == "BONKHUB" then
                 loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
-            elseif Scripts == "SpeedHubX" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
-            elseif fishs == "Chiyo" then
+            elseif fishs == "CHIYO" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
             elseif fishs == "BEBAS" then
                 loadstring(game:HttpGet("https://gist.githubusercontent.com/OmarBinLadek/25e75529e18b38e5d38beab9126fc004/raw/6d1c1c5e0e91373654d2f85ebb65e8221728e26d/freefishit.lua"))();
@@ -298,70 +283,6 @@ do
         end
     })
 
-    Tabs.night:AddSection("[ ฟามเพชร ]")
-
-    local Dropdown = Tabs.night:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = autonihttab,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
-
-    --Dropdown:SetValue("four")
-
-    Dropdown:OnChanged(function(Value)
-        nights = Value
-    end)
-
-    Tabs.night:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if nights == "VectorHub" then
-                getgenv().AutoExecute = true
-                getgenv().V = "Kaitundiamond"
-                getgenv().Webhookurl = "LINKWEBHOOK"
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
-            elseif nights == "CaoMod" then
-                getgenv().AutoExecute = true
-                getgenv().WebhookURL = ""
-                getgenv().AutoFarm = true
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/Farm%20Diamond%20v2.lua"))();
-            end
-        end
-    })
-
-    local Dropdown = Tabs.Hunty:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = Huntytab,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
-
-    --Dropdown:SetValue("four")
-
-    Dropdown:OnChanged(function(Value)
-        Huntys = Value
-    end)
-
-    Tabs.Hunty:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if Huntys == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
-            elseif Huntys == "SpeedHubX" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
-            elseif Huntys == "VectorHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
-            elseif Huntys == "ChiyoHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
-            elseif Huntys == "Zeehub" then
-                loadstring(game:HttpGet("https://zuwz.me/Ls-Zee-Hub-HZ"))();
-            end
-        end
-    })
-
 
     Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
 
@@ -412,6 +333,7 @@ do
             LocalPlr.Character.Humanoid.JumpPower = Jump
         end
     })
+end
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
