@@ -413,7 +413,25 @@ do
     })
 end
 
-Options.MyToggle:SetValue(false)
+Tabs.Players:AddButton({
+    Title = "Toggle Infinite Jump",
+    Description = "กดเพื่อเปิด/ปิด กระโดดไม่จำกัด",
+    Callback = function()
+        InfiniteJumpEnabled = not InfiniteJumpEnabled
+        pcall(function()
+            StarterGui:SetCore("SendNotification", {
+                Title = "Infinite Jump",
+                Text = InfiniteJumpEnabled and "เปิดใช้งานแล้ว" or "ปิดการใช้งานแล้ว",
+                Duration = 2
+            })
+        end)
+    end
+})
+game:GetService("UserInputService").JumpRequest:Connect(function()
+    if InfiniteJumpEnabled then
+        LocalPlr.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
+    end
+end)
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
