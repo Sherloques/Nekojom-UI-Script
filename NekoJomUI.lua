@@ -167,63 +167,8 @@ end
         end
     })
 
--- ใส่ส่วนนี้ในบล็อก Tabs.Players ของคุณ (แทนโค้ดเก่าที่เกี่ยวกับ Jump)
-Tabs.Players:AddSection("[ Jump / กระโดด ]")
-
-local UserInputService = game:GetService("UserInputService")
-local InfiniteJumpEnabled = false
-local Jump = 50 -- ค่าเริ่มต้น
-
--- Input สำหรับตั้ง JumpPower (แปลงเป็น number ก่อนใช้)
-local Input = Tabs.Players:AddInput("Input", {
-    Title = "JumpPower",
-    Default = tostring(Jump),
-    Placeholder = "",
-    Numeric = false,
-    Finished = false,
-    Callback = function(Value)
-        local n = tonumber(Value)
-        if n then
-            Jump = n
-        else
-            Jump = 50
-        end
-    end
-})
-
-Input:OnChanged(function() end)
-
-Tabs.Players:AddButton({
-    Title = "Set JumpPower",
-    Description = "กดเพื่อเปลี่ยนพลังกระโดด",
-    Callback = function()
-        local char = LocalPlr.Character
-        if char then
-            local humanoid = char:FindFirstChildOfClass("Humanoid")
-            if humanoid then
-                humanoid.JumpPower = Jump
-                pcall(function()
-                    StarterGui:SetCore("SendNotification", {
-                        Title = "JumpPower",
-                        Text = "ตั้งค่าเป็น "..tostring(Jump),
-                        Duration = 2
-                    })
-                end)
-                return
-            end
-        end
-        pcall(function()
-            StarterGui:SetCore("SendNotification", {
-                Title = "JumpPower",
-                Text = "Character/Humanoid ยังไม่พร้อม",
-                Duration = 2
-            })
-        end)
-    end
-})
-
 -- ปุ่มเปิด/ปิด Infinite Jump
-Tabs.Players:AddButton({
+    Tabs.Players:AddButton({
     Title = "Toggle Infinite Jump",
     Description = "กดเพื่อเปิด/ปิด กระโดดไม่จำกัด",
     Callback = function()
