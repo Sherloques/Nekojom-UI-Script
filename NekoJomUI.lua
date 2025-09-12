@@ -181,6 +181,7 @@ end
         end)
     end
     })
+    
     UserInputService.JumpRequest:Connect(function()
     if not InfiniteJumpEnabled then return end
     local char = LocalPlr and LocalPlr.Character
