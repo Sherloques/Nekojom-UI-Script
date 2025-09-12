@@ -64,7 +64,6 @@ local autonihttab = {
     "VectorHub",
     "CaoMod",
 }
-}
 local Huntytab = {
     "BonkHub",
     "SpeedHubX",
