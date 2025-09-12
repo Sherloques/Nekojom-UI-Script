@@ -167,6 +167,7 @@ end
         end
     })
 
+ -- ปุ่มเปิด/ปิด Infinite Jump
     Tabs.Players:AddButton({
     Title = "Toggle Infinite Jump",
     Description = "กดเพื่อเปิด/ปิด กระโดดไม่จำกัด",
@@ -193,7 +194,7 @@ end
             humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
         end)
     end
-end)
+end
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
