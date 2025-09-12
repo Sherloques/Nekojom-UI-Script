@@ -42,13 +42,14 @@ local Other = {
 do
     pcall(function()
     Tabs.Home:AddParagraph({
-        Title = "Welcome To My Script",
+        Title = "ยินดีต้อนรับสู่สคริปต์ของฉัน",
         Content = "หากสคริปต์ไหนใช้ไม่ได้โปรดติดต่อที่ดิสคอร์ดด้านล่าง\nหรืออยากให้เพิ่มสคริปต์ไหนก็สามารถแจ้งได้ที่ Discord ด้านล่าง"
+        Content = "Code By Khaotom"
     })
 
     Tabs.Home:AddButton({
         Title = "Discord Invite",
-        Description = "กดเพื่อคัดลอกลิ้งค์ดิสคอร์ด",
+        Description = "กดเพื่อคัดลอกลิ้งค์ Discord",
         Callback = function()
             setclipboard("https://discord.gg/yt-rocket")
             StarterGui:SetCore("SendNotification", {
