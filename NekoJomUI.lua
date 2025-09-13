@@ -189,7 +189,7 @@ do
                 loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
             elseif fishs == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
-            elseif Scripts == "NatHub" then
+            elseif fishs == "NatHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
             elseif fishs == "Chiyo" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
@@ -308,7 +308,7 @@ do
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if bloxs == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
                 elseif bloxs == "BlueXHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
                 elseif bloxs == "VectorHub" then
@@ -343,10 +343,10 @@ do
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
             elseif nights == "VectorHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
-            elseif nights == "NatHub" then
+            elseif nights == "NutHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
             elseif nights == "Somtank" then
-                loadstring(game:HttpGet("https://pastebin.com/raw/zyy57X37"))()
+                loadstring(game:HttpGet("https://pastebin.com/raw/zyy57X37"))();
             elseif nights == "H4xScripts" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua", true))()
 
