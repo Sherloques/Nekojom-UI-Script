@@ -185,7 +185,7 @@ do
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if fishs == "Bonkhub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
             elseif fishs == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
             elseif Scripts == "NatHub" then
@@ -307,7 +307,7 @@ do
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if bloxs == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
                 elseif bloxs == "BlueXHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
                 elseif bloxs == "VectorHub" then
@@ -345,9 +345,9 @@ do
             elseif nights == "NatHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
             elseif nights == "Somtank" then
-                loadstring(game:HttpGet("https://pastebin.com/raw/zyy57X37"))()
+                loadstring(game:HttpGet("https://pastebin.com/raw/zyy57X37"))();
             elseif nights == "H4xScripts" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua", true))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua", true))();
 
             end
         end
@@ -466,27 +466,27 @@ do
             LocalPlr.Character.Humanoid.JumpPower = Jump
         end
     })
-end
 
-Tabs.Players:AddButton({
-    Title = "Toggle Infinite Jump",
-    Description = "กดเพื่อเปิด/ปิด กระโดดไม่จำกัด",
-    Callback = function()
-        InfiniteJumpEnabled = not InfiniteJumpEnabled
-        pcall(function()
-            StarterGui:SetCore("SendNotification", {
-                Title = "Infinite Jump",
-                Text = InfiniteJumpEnabled and "เปิดใช้งานแล้ว" or "ปิดการใช้งานแล้ว",
-                Duration = 2
-            })
-        end)
-    end
-})
-game:GetService("UserInputService").JumpRequest:Connect(function()
-    if InfiniteJumpEnabled then
-        LocalPlr.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
-    end
-end)
+    Tabs.Players:AddButton({
+            Title = "Toggle Infinite Jump",
+            Description = "กดเพื่อเปิด/ปิด กระโดดไม่จำกัด",
+            Callback = function()
+                InfiniteJumpEnabled = not InfiniteJumpEnabled
+                pcall(function()
+                    StarterGui:SetCore("SendNotification", {
+                        Title = "Infinite Jump",
+                        Text = InfiniteJumpEnabled and "เปิดใช้งานแล้ว" or "ปิดการใช้งานแล้ว",
+                        Duration = 2
+                    })
+                end)
+            end
+        })
+        game:GetService("UserInputService").JumpRequest:Connect(function()
+        if InfiniteJumpEnabled then
+            LocalPlr.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
+        end
+    end)
+end
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
