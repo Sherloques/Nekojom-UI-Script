@@ -104,8 +104,12 @@ do
     })
     end)
 
-    Tabs.Script:AddSection("[ Key / มีคีย์ ]")
+    Tabs.Script:AddParagraph({
+        Title = "ScriptAll",
         Content = "รวมScriptที่มีคีย์/ไม่มีคีย์ก็ลองทุกอันว่าอันไหนใช้ในMapได้บ้างรันขึ้นคือใช้งานได้"
+    })
+
+    Tabs.Script:AddSection("[ Key / มีคีย์ ]")
 
     local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
         Title = "Select Scripts",
