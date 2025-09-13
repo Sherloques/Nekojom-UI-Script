@@ -26,9 +26,10 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
+
+local Options = Fluent.Options
 local Plr = game:GetService("Players")
 local LocalPlr = Plr.LocalPlayer
-local Options = Fluent.Options
 local StarterGui = game:GetService("StarterGui")
 
 local Script = {
@@ -58,7 +59,7 @@ local stiltab = {
     "ChilliHub",
 }
 local bloxtab = {
-    "Bonkhub",
+    "BonkHub",
     "BlueXHub",
     "VectorHub",
     "RadzHub",
@@ -184,8 +185,8 @@ do
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
-            if fishs == "Bonkhub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
+            if fishs == "BonkHub" then
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
             elseif fishs == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
             elseif Scripts == "NatHub" then
@@ -337,7 +338,7 @@ do
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if nights == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
             elseif nights == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
             elseif nights == "VectorHub" then
@@ -345,9 +346,9 @@ do
             elseif nights == "NatHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
             elseif nights == "Somtank" then
-                loadstring(game:HttpGet("https://pastebin.com/raw/zyy57X37"))();
+                loadstring(game:HttpGet("https://pastebin.com/raw/zyy57X37"))()
             elseif nights == "H4xScripts" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua", true))();
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua", true))()
 
             end
         end
@@ -404,7 +405,7 @@ do
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if Huntys == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
             elseif Huntys == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
             elseif Huntys == "VectorHub" then
