@@ -49,7 +49,7 @@ local fishtab = {
     "JinkX",
 }
 local Jintab = {
-    "JinkXHub",
+    "JinkX",
 }
 local stiltab = {
     "LemonHub",
@@ -203,7 +203,7 @@ do
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
-            if fishs == "JinkXHub" then
+            if fishs == "JinkX" then
                 getgenv().jinkX = {
                     ['Fish It'] = {
                         ['Aura Farmer'] = true, -- ฟาม Aura (ถ้ามีเบ็ด Ghostfinn Rod แล้ว)
