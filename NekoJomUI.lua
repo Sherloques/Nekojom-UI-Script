@@ -308,7 +308,7 @@ do
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if bloxs == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
                 elseif bloxs == "BlueXHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
                 elseif bloxs == "VectorHub" then
