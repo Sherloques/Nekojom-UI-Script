@@ -36,7 +36,7 @@ local Script = {
     "LemonHub",
     "BlueXHub",
     "SpeedHubX",
-    "NatHub",
+    "NutHub",
 }
 local Other = {
     "Fiy",
@@ -46,7 +46,7 @@ local Other = {
 local fishtab = {
     "BonkHub",
     "SpeedHubX",
-    "NatHub",
+    "NutHub",
     "Chiyo",
     "Bebas",
     "JinkX",
@@ -133,7 +133,7 @@ do
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
             elseif Scripts == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
-            elseif Scripts == "NatHub" then
+            elseif Scripts == "NutHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
             end
         end
@@ -189,7 +189,7 @@ do
                 loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
             elseif fishs == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
-            elseif Scripts == "NatHub" then
+            elseif Scripts == "NutHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
             elseif fishs == "Chiyo" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
@@ -343,7 +343,7 @@ do
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
             elseif nights == "VectorHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
-            elseif nights == "NatHub" then
+            elseif nights == "NutHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
             elseif nights == "Somtank" then
                 loadstring(game:HttpGet("https://pastebin.com/raw/zyy57X37"))()
