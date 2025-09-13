@@ -283,7 +283,7 @@ do
 
     local Dropdown = Tabs.blox:AddDropdown("Dropdown", {
         Title = "Select Scripts",
-        Values = stiltab,
+        Values = bloxtab,
         Multi = false,
         Default = "เลือกสคริปต์",
     })
