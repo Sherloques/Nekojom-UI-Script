@@ -60,6 +60,7 @@ local nighttab = {
     "VectorHub",
     "NutHub",
     "Somtank",
+    "H4xScripts",
 }
 local autonihttab = {
     "VectorHub",
@@ -297,6 +298,9 @@ do
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
             elseif nights == "Somtank" then
                 loadstring(game:HttpGet("https://pastebin.com/raw/zyy57X37"))()
+            elseif nights == "H4xScripts" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua", true))()
+
             end
         end
     })
