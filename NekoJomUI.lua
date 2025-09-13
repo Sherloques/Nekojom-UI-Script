@@ -45,6 +45,7 @@ local Other = {
 local fishtab = {
     "BonkHub",
     "SpeedHubX",
+    "NatHub",
     "Chiyo",
     "Bebas",
     "JinkX",
@@ -104,6 +105,7 @@ do
     end)
 
     Tabs.Script:AddSection("[ Key / มีคีย์ ]")
+        Content = "รวมScriptที่มีคีย์/ไม่มีคีย์ก็ลองทุกอันว่าอันไหนใช้ในMapได้บ้างรันขึ้นคือใช้งานได้"
 
     local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
         Title = "Select Scripts",
@@ -178,10 +180,12 @@ do
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
-            if fishs == "BONKHUB" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
+            if fishs == "Bonkhub" then
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
             elseif fishs == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
+            elseif Scripts == "NatHub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
             elseif fishs == "Chiyo" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
             elseif fishs == "Bebas" then
@@ -299,7 +303,7 @@ do
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if bloxs == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
                 elseif bloxs == "BlueXHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
                 elseif bloxs == "VectorHub" then
