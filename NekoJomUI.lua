@@ -185,7 +185,7 @@ do
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if fishs == "Bonkhub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
             elseif fishs == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
             elseif Scripts == "NatHub" then
@@ -307,7 +307,7 @@ do
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if bloxs == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
                 elseif bloxs == "BlueXHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
                 elseif bloxs == "VectorHub" then
@@ -337,7 +337,7 @@ do
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if nights == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
             elseif nights == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
             elseif nights == "VectorHub" then
@@ -404,7 +404,7 @@ do
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
             if Huntys == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
+                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
             elseif Huntys == "SpeedHubX" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
             elseif Huntys == "VectorHub" then
