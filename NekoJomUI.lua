@@ -28,7 +28,7 @@ local Tabs = {
 
 
 local Options = Fluent.Options
-local Plr = game:GetService("Player")
+local Plr = game:GetService("Players")
 local LocalPlr = Plr.LocalPlayer
 local StarterGui = game:GetService("StarterGui")
 
