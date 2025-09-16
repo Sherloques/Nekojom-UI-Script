@@ -22,22 +22,22 @@ local Tabs = {
     blox = Window:AddTab({ Title = "Blox Fruits", Icon = "rbxassetid://10734907168" }),
     night = Window:AddTab({ Title = "99 Night", Icon = "rbxassetid://10734907168" }),
     Hunty = Window:AddTab({ Title = "Hunty zombie", Icon = "rbxassetid://10734907168" }),
-    Players = Window:AddTab({ Title = "Players", Icon = "rbxassetid://10747373176" }),
+    Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://10747373176" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
 
 local Options = Fluent.Options
-local Plr = game:GetService("Players")
+local Plr = game:GetService("Player")
 local LocalPlr = Plr.LocalPlayer
 local StarterGui = game:GetService("StarterGui")
 
-local Script = {"LemonHub", "BlueXHub", "SpeedHubX", "NatHub","BonkHub","Chiyo","Bebas","JinkX","VectorHub","H4xScripts","Zeehub",}
+local Script = {"LemonHub", "BlueXHub", "SpeedHubX", "NatHub","BonkHub","Chiyo","Bebas","JinkX","VectorHub","H4xScripts","Zeehub","Eps1llonHub",}
 local Other = {"Fiy", "Anti AFK", "infiniteyield",}
 local Graphics = {"RTX43523", "Pshadeultimate",}
 local fishtab = {"BonkHub", "SpeedHubX", "NatHub", "Chiyo", "Bebas", "JinkX",}
 local Jintab = {"JinkX",}
-local stiltab = {"LemonHub", "ChilliHub",}
+local stiltab = {"VortexHub","ChilliHub","Eps1llonHub","LemonHub",}
 local bloxtab = {"BonkHub", "BlueXHub", "VectorHub", "RadzHub",}
 local nighttab = {"BonkHub", "SpeedHubX", "VectorHub", "NatHub", "Somtank", "H4xScripts",}
 local autonihttab = {"VectorHub", "CaoMod",}
@@ -65,12 +65,7 @@ do
     })
     end)
 
-    Tabs.Script:AddParagraph({
-        Title = "ScriptAll",
-        Content = "รวมScriptที่มีคีย์/ไม่มีคีย์ก็ลองทุกอันว่าอันไหนใช้ในMapได้บ้างรันขึ้นคือใช้งานได้"
-    })
-
-    Tabs.Script:AddSection("[ Key / มีคีย์ ]")
+    Tabs.Script:AddSection(" Key / มีคีย์ ")
 
     local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
         Title = "Select Scripts",
@@ -109,21 +104,13 @@ do
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua", true))()
             elseif Scripts == "Zeehub" then
                 loadstring(game:HttpGet("https://zuwz.me/Ls-Zee-Hub-HZ"))();
+            elseif Scripts == "Eps1llonHub" then
+                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/083f208b2d5d19c6b565190b0d2293c9.lua"))()
             end
         end
     })
 
-    local ShowList = loadstring(game:HttpGet("https://raw.githubusercontent.com/Toonza555/BONKHUB/refs/heads/main/script/Showlist.lua"))()
-
-          -- เรียกใช้ฟังก์ชัน
-          ShowList.ShowSupportMap("BONK HUB", {
-          "99 Nights",
-          "Blox Fruit",
-          "Grow a Garden"
-})
-
-
-    Tabs.Script:AddSection("[ Other / อื่นๆ ]")
+    Tabs.Script:AddSection(" External ")
 
     local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
         Title = "Select Scripts",
@@ -150,7 +137,7 @@ do
         end
     })
 
-    Tabs.Script:AddSection("[ Graphics / กราฟิก ]")
+    Tabs.Script:AddSection(" Graphics ")
 
     local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
         Title = "Select Scripts",
@@ -208,7 +195,7 @@ do
         end
     })
 
-    Tabs.Fish:AddSection("[ ไก่ตัน ]")
+    Tabs.Fish:AddSection(" ไก่ตัน ")
 
     local Dropdown = Tabs.Fish:AddDropdown("Dropdown", {
         Title = "Select Scripts",
@@ -289,10 +276,14 @@ do
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
-            if stils == "LemonHub" then
-                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
+            if stils == "VortexHub" then
+                loadstring(game:HttpGet("https://backend.unban.cc/api/lua/loader"))();
                 elseif stils == "ChilliHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/spicy/main/Chilli.lua"))();
+                elseif stils == "Eps1llonHub" then
+                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/083f208b2d5d19c6b565190b0d2293c9.lua"))();
+                elseif stils == "LemonHub" then    
+                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
             end
         end
     })
@@ -361,7 +352,7 @@ do
         end
     })
 
-    Tabs.night:AddSection("[ ฟามเพชร ]")
+    Tabs.night:AddSection(" ฟามเพชร ")
 
     local Dropdown = Tabs.night:AddDropdown("Dropdown", {
         Title = "Select Scripts",
@@ -425,9 +416,9 @@ do
         end
     })
 
-    Tabs.Players:AddSection("[ Speed / ความเร็ว ]")
+    Tabs.Player:AddSection(" Movement ")
 
-    local Input = Tabs.Players:AddInput("Input", {
+    local Input = Tabs.Player:AddInput("Input", {
         Title = "WalkSpeed",
         Default = "20",
         Placeholder = "",
@@ -442,7 +433,7 @@ do
         --print("Set Speed :", Input.Value)
     end)
     
-    Tabs.Players:AddButton({
+    Tabs.Player:AddButton({
         Title = "Set WalkSpeed",
         Description = "กดเพื่อเปลี่ยนความเร็ว",
         Callback = function()
@@ -450,9 +441,7 @@ do
         end
     })
 
-    Tabs.Players:AddSection("[ Jump / กระโดด ]")
-
-    local Input = Tabs.Players:AddInput("Input", {
+    local Input = Tabs.Player:AddInput("Input", {
         Title = "JumpPower",
         Default = "50",
         Placeholder = "",
@@ -467,7 +456,7 @@ do
         --print("Set Speed :", Input.Value)
     end)
 
-    Tabs.Players:AddButton({
+    Tabs.Player:AddButton({
         Title = "Set JumpPower",
         Description = "กดเพื่อเปลี่ยนพลังกระโดด",
         Callback = function()
@@ -475,23 +464,28 @@ do
         end
     })
 
-    Tabs.Players:AddButton({
-            Title = "Toggle Infinite Jump",
-            Description = "กดเพื่อเปิด/ปิด กระโดดไม่จำกัด",
-            Callback = function()
-                InfiniteJumpEnabled = not InfiniteJumpEnabled
-                pcall(function()
-                    StarterGui:SetCore("SendNotification", {
-                        Title = "Infinite Jump",
-                        Text = InfiniteJumpEnabled and "เปิดใช้งานแล้ว" or "ปิดการใช้งานแล้ว",
-                        Duration = 2
-                    })
-                end)
-            end
-        })
-        game:GetService("UserInputService").JumpRequest:Connect(function()
-        if InfiniteJumpEnabled then
-            LocalPlr.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
+    Tabs.Player:AddSection(" Modes ")
+
+    Tabs.Player:AddToggle("InfiniteJumpToggle", {
+    Title = "Infinite Jump",
+    Default = false,
+    Description = "เปิดเพื่อกระโดดไม่จำกัด",
+    Callback = function(state)
+        InfiniteJumpEnabled = state
+        pcall(function()
+            StarterGui:SetCore("SendNotification", {
+                Title = "Infinite Jump",
+                Text = state and "เปิดใช้งานแล้ว" or "ปิดการใช้งานแล้ว",
+                Duration = 2
+            })
+        end)
+    end
+})
+
+    -- เชื่อมการกดกระโดดเข้ากับฟังก์ชัน
+    game:GetService("UserInputService").JumpRequest:Connect(function()
+        if InfiniteJumpEnabled and LocalPlr.Character and LocalPlr.Character:FindFirstChildOfClass("Humanoid") then
+            LocalPlr.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
         end
     end)
 end
