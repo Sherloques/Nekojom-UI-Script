@@ -17,12 +17,9 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Home = Window:AddTab({ Title = "Home", Icon = "home" }),
     Script = Window:AddTab({ Title = "Script", Icon = "rbxassetid://10734907168" }),
-    Fish = Window:AddTab({ Title = "Fish It", Icon = "rbxassetid://10734907168" }),
-    sab = Window:AddTab({ Title = "Brainrot", Icon = "rbxassetid://10734907168" }),
-    blox = Window:AddTab({ Title = "Blox Fruits", Icon = "rbxassetid://10734907168" }),
-    night = Window:AddTab({ Title = "99 Night", Icon = "rbxassetid://10734907168" }),
-    Hunty = Window:AddTab({ Title = "Hunty zombie", Icon = "rbxassetid://10734907168" }),
     Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://10747373176" }),
+    Misc = Window:AddTab({ Title = "Misc", Icon = "star" }),
+    TP = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://10709775894" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
@@ -32,22 +29,14 @@ local Plr = game:GetService("Players")
 local LocalPlr = Plr.LocalPlayer
 local StarterGui = game:GetService("StarterGui")
 
-local Script = {"LemonHub", "BlueXHub", "SpeedHubX", "NatHub","BonkHub","Chiyo","Bebas","JinkX","VectorHub","H4xScripts","Zeehub","Eps1llonHub",}
-local Other = {"Fiy", "Anti AFK", "infiniteyield",}
-local Graphics = {"RTX43523", "Pshadeultimate",}
-local fishtab = {"BonkHub", "SpeedHubX", "NatHub", "Chiyo", "Bebas", "JinkX",}
+local Script = {"BonkHub","MaruHub","LemonHub","BlueXHub", "SpeedHubX", "NatHub","Chiyo","Bebas","JinkX","VectorHub","H4xScripts","Zeehub","RedzHub","Eps1llonHub",}
 local Jintab = {"JinkX",}
-local stiltab = {"VortexHub","ChilliHub","Eps1llonHub","LemonHub",}
-local bloxtab = {"BonkHub", "BlueXHub", "VectorHub", "RadzHub",}
-local nighttab = {"BonkHub", "SpeedHubX", "VectorHub", "NatHub", "Somtank", "H4xScripts",}
-local autonihttab = {"VectorHub", "CaoMod",}
-local Huntytab = {"BonkHub", "SpeedHubX", "Chiyo", "Zeehub", "VectorHub",}
 
 do
     pcall(function()
     Tabs.Home:AddParagraph({
-        Title = "Welcome To My Script",
-        Content = "หากสคริปต์ไหนใช้ไม่ได้โปรดติดต่อที่ดิสคอร์ดด้านล่าง\nหรืออยากให้เพิ่มสคริปต์ไหนก็สามารถแจ้งได้ที่ Discord ด้านล่าง\nCode By Khaotom"
+        Title = "Script ส่วนตัว",
+        Content = "ทำไว้ใช้เองขำๆรวมสคริปต์ไว้ใช้เอง\nBy Nekojom"
     })
 
     Tabs.Home:AddButton({
@@ -82,7 +71,15 @@ do
         Title = "Click To Execute",
         Description = "กดเพื่อรันสคริปต์",
         Callback = function()
-            if Scripts == "LemonHub" then
+            if Scripts == "BonkHub" then
+                getgenv().Key = "BONKHUB-9623288E740C"
+                getgenv().DiscordId = "855388945419993119"
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Toonza555/Project/refs/heads/main/PremiumLoader.lua", true))()
+            elseif Scripts == "MaruHub" then
+                getgenv().Key = "MARU-SC3UI-M6UG-8HMZ-OZ9AL-GGXMW"
+                getgenv().id = "754329983861784588"
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
+            elseif Scripts == "LemonHub" then
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
             elseif Scripts == "BlueXHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
@@ -90,8 +87,6 @@ do
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
             elseif Scripts == "NatHub" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
-            elseif Scripts == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
             elseif Scripts == "Chiyo" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
             elseif Scripts == "Bebas" then
@@ -104,314 +99,195 @@ do
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua", true))()
             elseif Scripts == "Zeehub" then
                 loadstring(game:HttpGet("https://zuwz.me/Ls-Zee-Hub-HZ"))();
+            elseif Scripts == "RedzHub" then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/heads/main/main.luau"))()
             elseif Scripts == "Eps1llonHub" then
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/083f208b2d5d19c6b565190b0d2293c9.lua"))()
             end
         end
     })
 
-    Tabs.Script:AddSection(" External ")
+    Tabs.Script:AddSection(" ไก่ตัน ")
 
-    local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = Other,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
+        local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
+            Title = "Select Scripts",
+            Values = Jintab,
+            Multi = false,
+            Default = "เลือกสคริปต์",
+        })
 
-    Dropdown:OnChanged(function(Value)
-        Others = Value
-    end)
+        --Dropdown:SetValue("four")
 
-    Tabs.Script:AddButton({
-        Title = "Click To Execute",
+        Dropdown:OnChanged(function(Value)
+            Scripts = Value
+        end)
+
+        Tabs.Script:AddButton({
+            Title = "Click To Execute",
+            Description = "กดเพื่อรันสคริปต์",
+            Callback = function()
+                if Scripts == "JinkX" then
+                    getgenv().jinkX = {
+                        ['Fish It'] = {
+                            ['Aura Farmer'] = true, -- ฟาม Aura (ถ้ามีเบ็ด Ghostfinn Rod แล้ว)
+
+                            ['Enabled'] = true,
+                            ['Webhook'] = '', -- ใส่ลิ้ง Webhook ถ้าไม่ใช้ไม่ต้องใส่
+                            
+                            ['Fpsboost'] = false,
+                            ['Fps_Cap'] = true,
+                            ['Fps_Value'] = 300,
+                            ['WhiteScreen'] = false,
+
+                            -- เบ็ดที่จะให้ซื้อ
+                            ['Rods'] = {
+                                'Luck Rod',
+                                'Carbon Rod',
+                                'Grass Rod',
+                                'Demascus Rod',
+                                'Ice Rod',
+                                'Lucky Rod',
+                                'Midnight Rod',
+                                'Steampunk Rod',
+                                'Chrome Rod',
+                                'Astral Rod',
+                            },
+
+                            -- Bobber ที่จะให้ซื้อ
+                            ['Baits'] = {
+                                'Topwater Bait',
+                                'Luck Bait',
+                                'Midnight Bait',
+                                'Nature Bait',
+                                'Chroma Bait',
+                                'Dark Matter Bait',
+                                'Corrupt Bait',
+                                'Aether Bait',
+                            },
+                        },
+                    }
+                    loadstring(game:HttpGet('https://raw.githubusercontent.com/stormskmonkey/JinkX/refs/heads/main/Loader.lua'))();
+                end
+            end
+        })
+
+    Tabs.Misc:AddSection(" External ")
+
+    local FlyEnabled = false
+
+    Tabs.Misc:AddToggle("FlyToggle", {
+        Title = "Fly",
+        Default = false,
         Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if Others == "Fiy" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/Fly"))();
-            elseif Others == "Anti AFK" then
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/antiafk'))();
-            elseif Others == "infiniteyield" then
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostSobe/Script/refs/heads/main/infiniteyield'))();
+        Callback = function(state)
+            FlyEnabled = state
+            if state then
+            
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Nekojom/Script/refs/heads/main/Fly"))();
+                print("Fly เปิดใช้งานแล้ว")
+            else
+
+                print("Fly ปิดการใช้งานแล้ว")
             end
         end
     })
 
-    Tabs.Script:AddSection(" Graphics ")
+    local AntiAFKEnabled = false
 
-    local Dropdown = Tabs.Script:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = Graphics,
-        Multi = false,
-        Default = "เลือกสคริปต์",
+    Tabs.Misc:AddToggle("AntiAFKToggle", {
+        Title = "AntiAFK",
+        Default = false,
+        Description = "กดเพื่อรันสคริปต์",
+        Callback = function(state)
+            AntiAFKEnabled = state
+            if state then
+            
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/Nekojom/Script/refs/heads/main/antiafk'))();
+                print("AntiAFK เปิดใช้งานแล้ว")
+            else
+
+                print("AntiAFK ปิดการใช้งานแล้ว")
+            end
+        end
     })
 
-    Dropdown:OnChanged(function(Value)
-        Graphicss = Value
-    end)
+    local infiniteyieldEnabled = false
 
-    Tabs.Script:AddButton({
-        Title = "Click To Execute",
+    Tabs.Misc:AddToggle("infiniteyieldToggle", {
+        Title = "infiniteyield",
+        Default = false,
         Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if Graphicss == "RTX43523" then
+        Callback = function(state)
+            infiniteyieldEnabled = state
+            if state then
+            
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/Nekojom/Script/refs/heads/main/infiniteyield'))();
+                print("infiniteyield เปิดใช้งานแล้ว")
+            else
+
+                print("infiniteyield ปิดการใช้งานแล้ว")
+            end
+        end
+    })
+
+    Tabs.Misc:AddSection(" Graphics ")
+
+    local GraphicsEnabled = false
+
+    Tabs.Misc:AddToggle("GraphicsToggle", {
+        Title = "RTX",
+        Default = false,
+        Description = "กดเพื่อรันสคริปต์",
+        Callback = function(state)
+            GraphicsEnabled = state
+            if state then
+            
                 loadstring(game:HttpGet("https://rawscripts.net/raw/Just-a-baseplate.-Script-de-RTX-43523"))();
-            elseif Graphicss == "Pshadeultimate" then
+                print("Graphics เปิดใช้งานแล้ว")
+            else
+
+                print("Graphics ปิดการใช้งานแล้ว")
+            end
+        end
+    })
+
+    local GraphicsEnabled = false
+
+    Tabs.Misc:AddToggle("GraphicsToggle", {
+        Title = "PshadeUltimate",
+        Default = false,
+        Description = "กดเพื่อรันสคริปต์",
+        Callback = function(state)
+            GraphicsEnabled = state
+            if state then
+            
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua'))();
+                print("PshadeUltimate เปิดใช้งานแล้ว")
+            else
+
+                print("PshadeUltimate ปิดการใช้งานแล้ว")
             end
         end
     })
 
-    local Dropdown = Tabs.Fish:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = fishtab,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
 
-    --Dropdown:SetValue("four")
+    Tabs.Misc:AddSection(" FPS Boots ")
 
-    Dropdown:OnChanged(function(Value)
-        fishs = Value
-    end)
+    local FPSBootsEnabled = false
 
-    Tabs.Fish:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if fishs == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
-            elseif fishs == "SpeedHubX" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
-            elseif fishs == "NatHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
-            elseif fishs == "Chiyo" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
-            elseif fishs == "Bebas" then
-                loadstring(game:HttpGet("https://gist.githubusercontent.com/OmarBinLadek/25e75529e18b38e5d38beab9126fc004/raw/6d1c1c5e0e91373654d2f85ebb65e8221728e26d/freefishit.lua"))();
-            elseif fishs == "JinkX" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/stormskmonkey/JinkX/refs/heads/main/Loader.lua"))();
-            end
-        end
-    })
+    Tabs.Misc:AddToggle("FPSBootsToggle", {
+        Title = "FPS Boots",
+        Default = false,
+        Description = "กดเพื่อลดแลค เพิ่มFPS",
+        Callback = function(state)
+            FPSBootsEnabled = state
+            if state then
 
-    Tabs.Fish:AddSection(" ไก่ตัน ")
+                loadstring(game:HttpGet("https://pastebin.com/raw/8YZ2cc6V"))();
+                print("FPS Boots เปิดใช้งานแล้ว")
+            else
 
-    local Dropdown = Tabs.Fish:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = Jintab,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
-
-    --Dropdown:SetValue("four")
-
-    Dropdown:OnChanged(function(Value)
-        fishs = Value
-    end)
-
-    Tabs.Fish:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if fishs == "JinkX" then
-                getgenv().jinkX = {
-                    ['Fish It'] = {
-                        ['Aura Farmer'] = true, -- ฟาม Aura (ถ้ามีเบ็ด Ghostfinn Rod แล้ว)
-
-                        ['Enabled'] = true,
-                        ['Webhook'] = '', -- ใส่ลิ้ง Webhook ถ้าไม่ใช้ไม่ต้องใส่
-                        
-                        ['Fpsboost'] = false,
-                        ['Fps_Cap'] = true,
-                        ['Fps_Value'] = 300,
-                        ['WhiteScreen'] = false,
-
-                        -- เบ็ดที่จะให้ซื้อ
-                        ['Rods'] = {
-                            'Luck Rod',
-                            'Carbon Rod',
-                            'Grass Rod',
-                            'Demascus Rod',
-                            'Ice Rod',
-                            'Lucky Rod',
-                            'Midnight Rod',
-                            'Steampunk Rod',
-                            'Chrome Rod',
-                            'Astral Rod',
-                        },
-
-                        -- Bobber ที่จะให้ซื้อ
-                        ['Baits'] = {
-                            'Topwater Bait',
-                            'Luck Bait',
-                            'Midnight Bait',
-                            'Nature Bait',
-                            'Chroma Bait',
-                            'Dark Matter Bait',
-                            'Corrupt Bait',
-                            'Aether Bait',
-                        },
-                    },
-                }
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/stormskmonkey/JinkX/refs/heads/main/Loader.lua'))();
-            end
-        end
-    })
-
-    local Dropdown = Tabs.sab:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = stiltab,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
-
-    --Dropdown:SetValue("four")
-
-    Dropdown:OnChanged(function(Value)
-        stils = Value
-    end)
-
-    Tabs.sab:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if stils == "VortexHub" then
-                loadstring(game:HttpGet("https://backend.unban.cc/api/lua/loader"))();
-                elseif stils == "ChilliHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/spicy/main/Chilli.lua"))();
-                elseif stils == "Eps1llonHub" then
-                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/083f208b2d5d19c6b565190b0d2293c9.lua"))();
-                elseif stils == "LemonHub" then    
-                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ffdfeadf0af798741806ea404682a938.lua"))();
-            end
-        end
-    })
-
-    local Dropdown = Tabs.blox:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = bloxtab,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
-
-    --Dropdown:SetValue("four")
-
-    Dropdown:OnChanged(function(Value)
-        bloxs = Value
-    end)
-
-    Tabs.blox:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if bloxs == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))()
-                elseif bloxs == "BlueXHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))();
-                elseif bloxs == "VectorHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
-                elseif bloxs == "RadzHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/heads/main/main.luau"))();
-
-            end
-        end
-    })
-
-    local Dropdown = Tabs.night:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = nighttab,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
-
-    --Dropdown:SetValue("four")
-
-    Dropdown:OnChanged(function(Value)
-        nights = Value
-    end)
-
-    Tabs.night:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if nights == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
-            elseif nights == "SpeedHubX" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
-            elseif nights == "VectorHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
-            elseif nights == "NatHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
-            elseif nights == "Somtank" then
-                loadstring(game:HttpGet("https://pastebin.com/raw/zyy57X37"))();
-            elseif nights == "H4xScripts" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua", true))()
-
-            end
-        end
-    })
-
-    Tabs.night:AddSection(" ฟามเพชร ")
-
-    local Dropdown = Tabs.night:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = autonihttab,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
-
-    --Dropdown:SetValue("four")
-
-    Dropdown:OnChanged(function(Value)
-        nights = Value
-    end)
-
-    Tabs.night:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if nights == "VectorHub" then
-                getgenv().AutoExecute = true
-                getgenv().V = "Kaitundiamond"
-                getgenv().Webhookurl = "LINKWEBHOOK"
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
-            elseif nights == "CaoMod" then
-                getgenv().AutoExecute = true
-                getgenv().WebhookURL = ""
-                getgenv().AutoFarm = true
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/Farm%20Diamond%20v2.lua"))();
-            end
-        end
-    })
-
-    local Dropdown = Tabs.Hunty:AddDropdown("Dropdown", {
-        Title = "Select Scripts",
-        Values = Huntytab,
-        Multi = false,
-        Default = "เลือกสคริปต์",
-    })
-
-    --Dropdown:SetValue("four")
-
-    Dropdown:OnChanged(function(Value)
-        Huntys = Value
-    end)
-
-    Tabs.Hunty:AddButton({
-        Title = "Click To Execute",
-        Description = "กดเพื่อรันสคริปต์",
-        Callback = function()
-            if Huntys == "BonkHub" then
-                loadstring(game:HttpGet("https://bonkhub.online/loader.lua",true))();
-            elseif Huntys == "SpeedHubX" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))();
-            elseif Huntys == "VectorHub" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/Vector_Hub/0/v2"))();
-            elseif Huntys == "Chiyo" then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))();
-            elseif Huntys == "Zeehub" then
-                loadstring(game:HttpGet("https://zuwz.me/Ls-Zee-Hub-HZ"))();
+                print("FPS Boots ปิดการใช้งานแล้ว")
             end
         end
     })
@@ -472,13 +348,13 @@ do
     Description = "เปิดเพื่อกระโดดไม่จำกัด",
     Callback = function(state)
         InfiniteJumpEnabled = state
-        pcall(function()
+        if InfiniteJumpEnabled then
             StarterGui:SetCore("SendNotification", {
                 Title = "Infinite Jump",
                 Text = state and "เปิดใช้งานแล้ว" or "ปิดการใช้งานแล้ว",
                 Duration = 2
             })
-        end)
+        end
     end
 })
 
@@ -489,6 +365,66 @@ do
         end
     end)
 end
+
+    Tabs.Player:AddToggle("NoclipToggle", {
+        Title = "Noclip",
+        Default = false,
+        Description = "เปิดเพื่อทะลุผ่านสิ่งของ",
+        Callback = function(state)
+            if not getgenv().ToggleNoclip then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Nekojom/Script/refs/heads/main/Noclip"))();
+            end
+            getgenv().ToggleNoclip(state)
+            if state then
+                print("Noclip เปิดใช้งานแล้ว")
+            else
+                print("Noclip ปิดการใช้งานแล้ว")
+            end
+        end
+    })
+
+    Tabs.Player:AddToggle("InvisibleToggle", {
+        Title = "Invisible",
+        Default = false,
+        Description = "เปิดเพื่อล่องหน",
+        Callback = function(state)
+            getgenv().InvisibleEnabled = state
+            if state then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Nekojom/Script/refs/heads/main/Invisible"))();
+                print("Invisible เปิดใช้งานแล้ว")
+            else
+                print("Invisible ปิดการใช้งานแล้ว")
+            end
+        end
+    })
+
+    Tabs.Player:AddToggle("PlayerEspToggle", {
+        Title = "PlayerEsp",
+        Default = false,
+        Description = "เปิดเพื่อมองเห็นผู้เล่น",
+        Callback = function(state)
+            getgenv().PlayerEspEnabled = state
+            if state then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Nekojom/Script/refs/heads/main/PlayerEsp"))();
+                print("PlayerEsp เปิดใช้งานแล้ว")
+            else
+                print("PlayerEsp ปิดการใช้งานแล้ว")
+            end
+        end
+    })
+
+
+
+    Tabs.TP:AddSection(" Teleport  ")
+
+    Tabs.TP:AddButton({
+        Title = "Teleport To Shop Seeds",
+        Description = "วาปไปที่ขายเมล็ด",
+        Callback = function()
+            LocalPlr.Character.HumanoidRootPart.CFrame = CFrame.new(86.5790176, 2.99999976, -27.0039711, 0.00114052149, -4.75095341e-08, -0.999999344, -1.16310509e-12, 1, -4.75095661e-08, 0.999999344, 5.53487881e-11, 0.00114052149)
+        end
+    })
+
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
@@ -573,3 +509,4 @@ end
 dragify(logoButton, logoButton)
 
 SaveManager:LoadAutoloadConfig()
+
